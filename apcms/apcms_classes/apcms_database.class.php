@@ -14,16 +14,16 @@
 // | <dma147 at mieland-programming dot de> so we can mail you a copy     |
 // | immediately.                                                         |
 // +----------------------------------------------------------------------+
-// | Authors: Alexander Mieland <dma147 at mieland-programming dot de>    |
+// | Authors: Alexander Mieland <dma147 at linux-stats dot org>           |
 // |          Eric Appelt <lacritima at php-lexikon dot de>               |
 // +----------------------------------------------------------------------+
 //
 // +----------------------------------------------------------------------+
-// $Id: apcms_database.class.php,v 1.1 2005/10/24 21:22:10 dma147 Exp $
+// $Id: apcms_database.class.php,v 1.2 2005/10/24 21:47:51 dma147 Exp $
 // +----------------------------------------------------------------------+
 // $RCSfile: apcms_database.class.php,v $
-// $Revision: 1.1 $
-// $Date: 2005/10/24 21:22:10 $
+// $Revision: 1.2 $
+// $Date: 2005/10/24 21:47:51 $
 // $Author: dma147 $
 // +----------------------------------------------------------------------+
 

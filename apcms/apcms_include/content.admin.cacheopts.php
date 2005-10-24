@@ -10,7 +10,7 @@
 // | available through the world-wide-web at the following url:           |
 // | http://www.gnu.org/copyleft/gpl.html.                                |
 // +----------------------------------------------------------------------+
-// | Authors: Alexander Mieland <dma147 at mieland-programming dot de>    |
+// | Authors: Alexander Mieland <dma147 at linux-stats dot org>           |
 // +----------------------------------------------------------------------+
 // $Id $
 // +----------------------------------------------------------------------+
