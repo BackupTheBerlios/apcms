@@ -1,0 +1,505 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;  
+    font-size: 12px;
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    font-variant: normal;
+    color: #000000;
+    text-decoration: none;
+    scrollbar-3dlight-color:#f9f9f9;
+    scrollbar-arrow-color:#486f87;
+    scrollbar-base-color:#b4c0c8;
+    scrollbar-track-color:#9dadb8;
+    scrollbar-darkshadow-color:#121212;
+    scrollbar-face-color:#869dac;
+    scrollbar-highlight-color:#f4b82b;
+    scrollbar-shadow-color:#333333
+} 
+
+b {font-weight:bold;}
+i {font-style:italic;}
+
+.A  {background-color: #c9e4f8;}
+.B  {background-color: #dbecf8;}
+.C  {background-color: #edf3f8;}
+
+.tabBG {background-color: #000000;}
+.t {font-family:Arial, Helvetica, sans-serif;}
+.t1 {font-family:Arial, Helvetica, sans-serif; font-size: 11px;}
+.t2 {font-family:Arial, Helvetica, sans-serif; font-size: 12px;}
+.t3 {font-family:Arial, Helvetica, sans-serif; font-size: 14px;}
+
+.tA1L {font-size: 11px; color: #000000; background-color: #c9e4f8; text-align:left;}
+.tA1R {font-size: 11px; color: #000000; background-color: #c9e4f8; text-align:right;}
+.tA1C {font-size: 11px; color: #000000; background-color: #c9e4f8; text-align:center;}
+.tA2L {font-size: 12px; color: #000000; background-color: #c9e4f8; text-align:left;}
+.tA2R {font-size: 12px; color: #000000; background-color: #c9e4f8; text-align:right;}
+.tA2C {font-size: 12px; color: #000000; background-color: #c9e4f8; text-align:center;}
+.tA3L {font-size: 14px; color: #000000; background-color: #c9e4f8; text-align:left;}
+.tA3R {font-size: 14px; color: #000000; background-color: #c9e4f8; text-align:right;}
+.tA3C {font-size: 14px; color: #000000; background-color: #c9e4f8; text-align:center;}
+.tB1L {font-size: 11px; color: #000000; background-color: #dbecf8; text-align:left;}
+.tB1R {font-size: 11px; color: #000000; background-color: #dbecf8; text-align:right;}
+.tB1C {font-size: 11px; color: #000000; background-color: #dbecf8; text-align:center;}
+.tB2L {font-size: 12px; color: #000000; background-color: #dbecf8; text-align:left;}
+.tB2R {font-size: 12px; color: #000000; background-color: #dbecf8; text-align:right;}
+.tB2C {font-size: 12px; color: #000000; background-color: #dbecf8; text-align:center;}
+.tB3L {font-size: 14px; color: #000000; background-color: #dbecf8; text-align:left;}
+.tB3R {font-size: 14px; color: #000000; background-color: #dbecf8; text-align:right;}
+.tB3C {font-size: 14px; color: #000000; background-color: #dbecf8; text-align:center;}
+.tC1L {font-size: 11px; color: #000000; background-color: #edf3f8; text-align:left;}
+.tC1R {font-size: 11px; color: #000000; background-color: #edf3f8; text-align:right;}
+.tC1C {font-size: 11px; color: #000000; background-color: #edf3f8; text-align:center;}
+.tC2L {font-size: 12px; color: #000000; background-color: #edf3f8; text-align:left;}
+.tC2R {font-size: 12px; color: #000000; background-color: #edf3f8; text-align:right;}
+.tC2C {font-size: 12px; color: #000000; background-color: #edf3f8; text-align:center;}
+.tC3L {font-size: 14px; color: #000000; background-color: #edf3f8; text-align:left;}
+.tC3R {font-size: 14px; color: #000000; background-color: #edf3f8; text-align:right;}
+.tC3C {font-size: 14px; color: #000000; background-color: #edf3f8; text-align:center;}
+
+.codetitle {
+    background: #edf3f8;
+    border:1px solid #000000;
+    padding:5px;
+    width:100%;
+    font-weight:bold;
+    text-align:left;
+    margin-top:0px
+}
+.codediv {
+    background: #FFFcdd;
+    border: 1px solid #000000;
+    border-top:0;
+    padding:5px;
+    overflow:auto;
+    width:100%;
+    height:50px;
+    text-align:left;
+    font-family: Courier New, Adobe Courier, Courier, lucida fixed, fixed;
+    font-size:10px
+}
+
+pre {
+    font-size: 10px; 
+    color: #000000
+}
+
+.printbody { 
+    font-family: Times New Roman, Times, sans-serif, serif, Courier New, Courier, Arial, Helvetica;  
+    font-size: 10px;  
+    font-style: normal;  
+    line-height: normal;  
+    font-weight: normal;  
+    font-variant: normal;  
+    color: #000000;  
+    text-decoration: none;  
+    background-image: none;  
+    background-repeat: no-repeat; 
+    background-color: #FFFFFF
+} 
+ 
+.codeblock { 
+    font-family: Courier New, Courier, sans-serif, Times New Roman, Times, serif, Arial, Helvetica;  
+    font-size: 10px;
+    font-style: normal;  
+    line-height: normal;  
+    font-weight: normal;  
+    font-variant: normal;  
+    color: #000000;  
+    text-decoration: none;  
+    background-image: none;  
+    background-repeat: no-repeat;
+    background-color: #FFFFF0
+} 
+ 
+.printcopyright { 
+    font-size: 9px;  
+    color: #000000 
+} 
+ 
+.printcopyright:link { 
+    font-family: Times New Roman, Times, sans-serif, serif, Courier New, Courier, Arial, Helvetica;  
+    font-size: 9px;  
+    color: #0066FF; 
+    text-decoration: underline 
+} 
+ 
+.printcopyright:hover {
+    font-family: Times New Roman, Times, sans-serif, serif, Courier New, Courier, Arial, Helvetica;  
+    font-size: 9px;  
+    color: #0066FF; 
+    text-decoration: underline 
+} 
+ 
+.printcopyright:visited { 
+    font-family: Times New Roman, Times, sans-serif, serif, Courier New, Courier, Arial, Helvetica;  
+    font-size: 9px;  
+    color: #0066FF; 
+    text-decoration: underline 
+} 
+ 
+.copyright { 
+    font-size: 8px;  
+    color: #ABC4D1 
+} 
+ 
+.copyright:link { 
+    font-size: 8px;  
+    color: #ABC4D1; 
+    text-decoration: underline 
+} 
+ 
+.copyright:hover { 
+    font-size: 8px;  
+    color: #f4b82b;
+    text-decoration: underline 
+} 
+ 
+.mailbox { 
+    font-size: 12px;  
+    font-weight: bold;  
+    color: #ABC4D1 
+} 
+ 
+tr { 
+    font-family: Arial, Helvetica, sans-serif;  
+    font-size: 12px;  
+    color: #000000 
+} 
+ 
+hr { 
+    color: #ABC4D1; 
+    size: 1px; 
+    border: noshade  
+} 
+ 
+td { 
+    font-family: Arial, Helvetica, sans-serif;  
+    font-size: 12px;  
+    color: #000000 
+} 
+ 
+.boxc { 
+    font-family: Arial, Helvetica, sans-serif;  
+    font-size: 12px;  
+    color: #000000
+} 
+ 
+a:link { 
+    font-family: Arial, Helvetica, sans-serif;  
+    font-size: 12px;  
+    color: #046cb5; 
+    text-decoration: none 
+} 
+ 
+a:visited { 
+    font-family: Arial, Helvetica, sans-serif;  
+    font-size: 12px;  
+    color: #046cb5; 
+    text-decoration: none 
+} 
+ 
+a:active { 
+    font-family: Arial, Helvetica, sans-serif;  
+    font-size: 12px;  
+    color: #e10505;
+    text-decoration: none 
+} 
+ 
+a:hover {
+    font-family: Arial, Helvetica, sans-serif;  
+    font-size: 12px;  
+    color: #e10505;
+    text-decoration: none 
+}
+ 
+.navtitel { 
+    font-family: Arial, Helvetica, sans-serif;  
+    font-size: 12px;  
+    font-weight: bold;  
+    color: #EEEEEE;
+    background-image: url(./images/gfx/verlauf.gif);
+}
+ 
+.middletitel { 
+    font-family: Arial, Helvetica, sans-serif;  
+    font-size: 12px;  
+    font-weight: bold;  
+    color: #EEEEEE 
+} 
+ 
+.titelnav {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.middletitle {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.newstitle {
+    font-family: Arial, Helvetica, sans-serif;  
+    font-size: 12px;  
+    color: #000000;  
+}
+ 
+.newsfoot { 
+    font-family: Arial, Helvetica, sans-serif;  
+    font-size: 9px;  
+    color: #000000;  
+} 
+ 
+.broadcast { 
+    font-family: Courier New, Courier, Times New Roman, Times, sans-serif, serif, Arial, Helvetica;  
+    font-size: 12px;  
+    font-weight: normal;  
+    color: #FFFFFF;  
+    background-color: #000000;  
+    border: solid;  
+    border-width: 1px 0px;  
+    border-color: #AAAAAA gray 
+} 
+ 
+.inputusername { 
+    color: #000000;  
+    font: normal 11px Arial, Helvetica, sans-serif;  
+    border-color: #000000;  
+    background-color: #ffffff;  
+    text-indent: 2px; 
+    width: 100px 
+} 
+ 
+.inputemail { 
+    color: #000000;  
+    font: normal 11px Arial, Helvetica, sans-serif;  
+    border-color: #000000;  
+    background-color: #ffffff;  
+    text-indent: 2px; 
+    width: 250px 
+} 
+ 
+.inputsubject { 
+    color: #000000;  
+    font: normal 11px Arial, Helvetica, sans-serif;  
+    border-color: #000000;  
+    background-color: #ffffff;  
+    text-indent: 2px; 
+    width: 322px 
+} 
+ 
+.mailnavtitle { 
+    font-size: 12px;  
+    font-style: italic;  
+    font-weight: bold;  
+    background-color: #999999;  
+    color: #000000 
+} 
+ 
+.mailnav { 
+    background-color: #CCCCCC;  
+    font-size: 12px;  
+    font-weight: bold 
+} 
+ 
+.unreadmail1 { 
+    background-color: #E5E5E5;  
+    font-size: 12px;  
+    font-weight: bold 
+} 
+ 
+.readmail1 { 
+    background-color: #E5E5E5;  
+    font-size: 12px 
+} 
+ 
+.unreadmail2 { 
+    background-color: #DDDDDD;  
+    font-size: 12px;  
+    font-weight: bold 
+} 
+ 
+.readmail2 { 
+    background-color: #DDDDDD;  
+    font-size: 12px 
+} 
+ 
+.writemailbody { 
+    color: #000000;  
+    font: normal 11px Courier New, Courier, Arial, Helvetica;  
+    border-color: #000000;  
+    background-color: #ffffff;  
+    text-indent: 2px; 
+    width: 530px 
+}  
+ 
+.writenewpage { 
+    color: #000000;  
+    font: normal 11px Courier New, Courier, Arial, Helvetica;  
+    border-color: #000000;  
+    background-color: #ffffff;  
+    text-indent: 0.1mm; 
+    width: 640px 
+}  
+ 
+.mailbody { 
+    font-family: Courier New, Courier, Arial, Helvetica;  
+    font-size: 11px;  
+    color: #000000;  
+    background-color: #CCCCCC 
+} 
+ 
+.mailheader { 
+    font-family: Courier New, Courier, Arial, Helvetica;  
+    font-size: 11px;  
+    color: #000000;  
+    background-color: #CCCCCC 
+} 
+ 
+.inputquestion { 
+    color: #000000;  
+    font: normal 11px Arial, Helvetica, sans-serif;  
+    border-color: #000000;  
+    background-color: #ffffff;  
+    text-indent: 2px; 
+    width: 390px 
+} 
+ 
+.inputanswer { 
+    color: #000000;  
+    font: normal 11px Arial, Helvetica, sans-serif;  
+    border-color: #000000;  
+    background-color: #ffffff;  
+    text-indent: 2px; 
+    width: 248px 
+} 
+ 
+.inputvotes { 
+    color: #000000;  
+    font: normal 11px Arial, Helvetica, sans-serif;  
+    border-color: #000000;  
+    background-color: #ffffff;  
+    text-indent: 2px; 
+    width: 60px 
+} 
+ 
+.inputnavigation { 
+    color: #000000;  
+    font: normal 11px Arial, Helvetica, sans-serif;  
+    border-color: #000000;  
+    background-color: #ffffff;  
+    text-indent: 2px; 
+    width: 460px 
+} 
+ 
+.selectred { 
+    color: black;  
+    background-color: red 
+} 
+.selectblue { 
+    color: white;  
+    background-color: blue 
+} 
+.selectyellow { 
+    color: black;  
+    background-color: yellow 
+} 
+.selectgreen { 
+    color: black;  
+    background-color: green 
+} 
+.selectbrown { 
+    color: white;  
+    background-color: #993300 
+} 
+.selectviolet { 
+    color: black;  
+    background-color: #CC00FF 
+} 
+.selectblack { 
+    color: white;  
+    background-color: black 
+} 
+.selectorange { 
+    color: black;  
+    background-color: #FF9900 
+} 
+.selectcyan { 
+    color: black;  
+    background-color: #66FFFF 
+} 
+.selectgrey { 
+    color: black;  
+    background-color: #B2B2B2 
+} 
+
+/*		Sonstiges (Buttons, select-farben, etc...)		*/
+input, textarea, select {
+	background-color	: #dbecf8;
+	color				: #000000;
+	border-color		: #bacdd3;
+	text-indent			: 1px;
+	font-weight			: normal;
+	font-size			: 11px;
+	font-family			: Arial, Lucida, Helvetica, Verdana, sans serif;
+}
+input.button {
+	background-color	: #dbecf8;
+	color				: #000000;
+	border-color		: #bacdd3;
+	text-indent			: 1px;
+	font-weight			: normal;
+	font-size			: 11px;
+	font-family			: Arial, Lucida, Helvetica, Verdana, sans serif;
+}
+input.mainoption {
+	background-color	: #dbecf8;
+	color		        : #000000;
+	border-color		: #bacdd3;
+	text-indent			: 1px;
+	font-weight			: bolder;
+	font-size           : 11px;
+	font-family			: Arial, Lucida, Helvetica, Verdana, sans serif;
+}
+input.liteoption {
+	background-color	: #dbecf8;
+	color		        : #000000;
+	border-color		: #bacdd3;
+	text-indent			: 1px;
+	font-weight			: normal;
+	font-size           : 11px;
+	font-family			: Arial, Lucida, Helvetica, Verdana, sans serif;
+}
+option {
+	background-color	: #dbecf8;
+	color		        : #000000;
+	border-color		: #bacdd3;
+	text-indent			: 1px;
+	font-weight			: normal;
+	font-size           : 11px;
+	font-family			: Arial, Lucida, Helvetica, Verdana, sans serif;
+}
+input.radio {
+	background-color	: #dbecf8;
+	color		        : #000000;
+	border-color		: #bacdd3;
+	text-indent			: 1px;
+	font-weight			: normal;
+	font-size           : 11px;
+	font-family			: Arial, Lucida, Helvetica, Verdana, sans serif;
+}
+input.checkbox {
+	background-color	: #dbecf8;
+	color		        : #000000;
+	border-color		: #bacdd3;
+	text-indent			: 1px;
+	font-weight			: normal;
+	font-size           : 11px;
+	font-family			: Arial, Lucida, Helvetica, Verdana, sans serif;
+}
+

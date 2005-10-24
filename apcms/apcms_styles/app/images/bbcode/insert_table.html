@@ -1,0 +1,132 @@
+<html STYLE="width: 432px; height: 168px; ">
+<head><title>Insert Table</title><head>
+<style>
+  html, body, button, div, input, select, td, fieldset { font-family: MS Shell Dlg; font-size: 8pt; };
+</style>
+<script>
+
+// if we pass the "window" object as a argument and then set opener to
+// equal that we can refer to dialogWindows and popupWindows the same way
+opener = window.dialogArguments;
+
+var _editor_url = opener._editor_url;
+var objname     = location.search.substring(1,location.search.length);
+var config      = opener.document.all[objname].config;
+var editor_obj  = opener.document.all[objname];
+var editdoc     = opener.document;
+
+
+
+
+function _CloseOnEsc() {
+  if (event.keyCode == 27) { window.close(); return; }
+}
+
+window.onerror = HandleError
+
+function HandleError(message, url, line) {
+  var str = "An error has occurred in this dialog." + "\n\n"
+  + "Error: " + line + "\n" + message;
+  alert(str);
+//  window.close();
+  return true;
+}
+
+function Init() {
+  document.body.onkeypress = _CloseOnEsc;
+}
+
+function _isValidNumber(txtBox) {
+  var val = parseInt(txtBox);
+  if (isNaN(val) || val < 0 || val > 9999) { return false; }
+  return true;
+}
+
+function btnOKClick() {
+  var curRange = editdoc.selection.createRange();
+
+  // error checking
+  var checkList = ['rows','cols','border'];
+  for (var idx in checkList) {
+    var fieldname = checkList[idx];
+    if (document.all[fieldname].value == "") {
+      alert("You must specify a value for the '" +fieldname+ "' field!");
+      document.all[fieldname].focus();
+      return;
+    }
+    else if (!_isValidNumber(document.all[fieldname].value)) {
+      alert("You must specify a number between 0 and 9999 for '" +fieldname+ "'!");
+      document.all[fieldname].focus();
+      return;
+    }
+  }
+
+  // delete selected content (if applicable)
+  if (editdoc.selection.type == "Control" || curRange.htmlText) {
+
+    if (!confirm("Overwrite selected content?")) { return; }
+
+    curRange.execCommand('Delete');
+    curRange = editdoc.selection.createRange();
+  }
+
+
+  // create table
+  var table = '\n[table=' +document.all.bgcolor.value+ ',' +document.all.width.value + document.all.widthExt.value+ ',' +document.all.border.value+ ']\n';
+
+  for (var x=0; x<document.all.rows.value; x++) {
+    table += "  [tr]\n";
+	tdwidth = document.all.width.value / document.all.cols.value;
+	tdwidth = Math.round(tdwidth) + document.all.widthExt.value;
+    for (var y=0; y<document.all.cols.value; y++) {
+      table += "    [td="+document.all.bgcolor.value+","+tdwidth+",left] Feldinhalt [/td]\n";
+    }
+    table += "  [/tr]\n";
+  }
+  table += "[/table]\n";
+
+  // insert table
+  opener.editor_insertHTML(objname, table);
+
+
+  // close popup window
+  window.close();
+}
+</SCRIPT>
+</HEAD>
+<BODY id=bdy onload="Init()" style="background: threedface; color: windowtext; margin: 10px; BORDER-STYLE: none" scroll=no>
+
+<table border=0 cellspacing=0 cellpadding=0 style="margin: 0 0 8 0">
+ <tr>
+  <td width="110">Breite: &nbsp;</td>
+  <td>
+   <input type="text" name="width" value="100" style="width: 50px" maxlength=4>
+   <select name="widthExt">
+    <option value="">Pixels</option>
+    <option value="%" selected>Percent</option>
+   </select>
+  </td>
+ </tr>
+ <tr>
+  <td width="110">Zeilen: &nbsp;</td>
+  <td><input type="text" name="rows" value="1"  style="width: 100%" maxlength=4></td>
+ </tr>
+ <tr>
+  <td width="110">Spalten:</td>
+  <td><input type="text" name="cols" value="2"  style="width: 100%" maxlength=4></td>
+ </tr>
+ <tr>
+    <td width="110">Border:</td>
+    <td><input type="text" name="border" value="1" size=1 style="width: 100%" maxlength=1></td>
+ </tr>
+ <tr>
+    <td width="110">Hintergrundfarbe:</td>
+    <td><input type="text" name="bgcolor" value="#FFFFFF" size=7 style="width: 100%" maxlength=7></td>
+ </tr>
+</table>
+<div style="left: 255px; top: 11px; position: absolute">
+ <BUTTON style="width: 7em; height: 2.2em; margin: 0 0 3 0" type=submit onclick="btnOKClick()">OK</BUTTON><br>
+ <BUTTON style="width: 7em; height: 2.2em; " type=reset onClick="window.close();">Cancel</BUTTON>
+</div>
+</BODY>
+</HTML>

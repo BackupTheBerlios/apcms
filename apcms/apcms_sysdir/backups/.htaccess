@@ -1,0 +1,5 @@
+<Directory /web/www/CVS/apcms/apcms_sysdir/backups>
+	Order Deny,Allow
+	Deny from all
+	Allow from localhost
+</Directory>

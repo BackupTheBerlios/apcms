@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /apcms_classes/
+Disallow: /apcms_configs/
+Disallow: /apcms_content/
+Disallow: /apcms_docs/
+Disallow: /apcms_functions/
+Disallow: /apcms_include/
+Disallow: /apcms_log/
+Disallow: /apcms_modules/
+Disallow: /apcms_styles/
+Disallow: /apcms_sysdir/
+Disallow: /apcms_userdir/
