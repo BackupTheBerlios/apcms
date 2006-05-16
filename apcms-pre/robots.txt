@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /includes/
+Disallow: /libs/
+Disallow: /plugins/
+Disallow: /setup/
+Disallow: /themes/
