@@ -116,6 +116,9 @@ class APCms_SideBar_PoweredBy {
 		 ////////////////////////////////////////////////////////////////////////
 		*/
 		
+		/** The directoryname of this plugin */
+		$this->dirname				=	'apcms_sidebar_poweredby';
+		
 		/** The name of this plugin */
 		$this->plugin				=	'PoweredBy Box';
 		

@@ -117,6 +117,9 @@ class APCms_SideBar_AdminBox {
 		 ////////////////////////////////////////////////////////////////////////
 		*/
 		
+		/** The directoryname of this plugin */
+		$this->dirname				=	'apcms_sidebar_adminbox';
+		
 		/** The name of this plugin */
 		$this->plugin				=	'Administration Box';
 		
