@@ -7,9 +7,9 @@
 	 */
 
 	$MYSQLDATA['HOST']		=	'localhost';
-	$MYSQLDATA['USER']		=	'root';
-	$MYSQLDATA['PASSWD']	=	'Rt$5&tZg';
-	$MYSQLDATA['DB']		=	'apcms';
+	$MYSQLDATA['USER']		=	'*****';
+	$MYSQLDATA['PASSWD']	=	'****';
+	$MYSQLDATA['DB']		=	'***';
 	
 	$MYSQLDATA['PREFIX']	=	'apcms';
 	$MYSQLDATA['UNIQUE']	=	1;
