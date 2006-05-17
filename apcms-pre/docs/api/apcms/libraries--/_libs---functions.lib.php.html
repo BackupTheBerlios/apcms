@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs for page functions.lib.php</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="file-name"><img src="../../media/images/Page_logo.png" alt="File" style="vertical-align: middle">/libs/functions.lib.php</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+											<a href="#sec-constants">Constants</a>
+			|									<a href="#sec-functions">Functions</a>
+			</div>
+	<div class="info-box-body">	
+		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Project:		APCms: (Another PHP) Complex module system</p>
+<p class="description"><p>This source file is subject to version 2 of the GPL,  that is bundled with this package in the file LICENSE, and is  available through the world-wide-web at the following url:  http://www.gnu.org/copyleft/gpl.html.  If you did not receive a copy of the GPL license and are unable to  obtain it through the world-wide-web, please send a note to  &lt;dma147@php-programs.de&gt; so we can mail you a copy immediately.</p><p>For questions, help, comments, discussion, etc., please join the  Smarty mailing list. Send a blank e-mail to  smarty-general-subscribe@lists.php.net</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">filesource:</span> <a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html">Source Code for this file</a></li>
+				<li><span class="field">author:</span> Alexander 'dma147' Mieland &lt;<a href="mailto:dma147@php-programs.de">dma147@php-programs.de</a>&gt;</li>
+				<li><span class="field">copyright:</span> Copyright: 2000-2006 Alexander 'dma147' Mieland</li>
+				<li><span class="field">version:</span> 0.0.1-pre1</li>
+				<li><span class="field">link:</span> <a href="http://apcms.php-programs.de">http://apcms.php-programs.de</a></li>
+			</ul>
+		
+			</div>
+</div>
+		
+
+	
+	<a name="sec-constants"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+									<span class="disabled">Constants</span>
+			|										<a href="#sec-functions">Functions</a>
+					</div>
+		<div class="info-box-body">	
+			<a name="definePWD_ALLOW_ALL"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../../media/images/Constant.png" />
+		<span class="const-title">
+			<span class="const-name">PWD_ALLOW_ALL</span> = (PWD_ALLOW_NUM|PWD_ALLOW_LC|PWD_ALLOW_UC)
+			(line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a111">111</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">all numeric and alphanumeric</p>
+	
+		
+</div>
+<a name="definePWD_ALLOW_DFLT"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../../media/images/Constant.png" />
+		<span class="const-title">
+			<span class="const-name">PWD_ALLOW_DFLT</span> = (PWD_ALLOW_NUM|PWD_ALLOW_LC)
+			(line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a109">109</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">numeric and lower case alphanumeric (0-9,a-z)</p>
+	
+		
+</div>
+<a name="definePWD_ALLOW_LC"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../../media/images/Constant.png" />
+		<span class="const-title">
+			<span class="const-name">PWD_ALLOW_LC</span> = (1&lt;&lt;1)
+			(line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a105">105</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">lower case alphanumeric (a-z)</p>
+	
+		
+</div>
+<a name="definePWD_ALLOW_NUM"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../../media/images/Constant.png" />
+		<span class="const-title">
+			<span class="const-name">PWD_ALLOW_NUM</span> = (1&lt;&lt;0)
+			(line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a103">103</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Numeric (0-9)</p>
+	
+		
+</div>
+<a name="definePWD_ALLOW_UC"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../../media/images/Constant.png" />
+		<span class="const-title">
+			<span class="const-name">PWD_ALLOW_UC</span> = (1&lt;&lt;2)
+			(line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a107">107</a></span>)
+		</span>
+	</div>
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">upper case alphanumeric (A-Z)</p>
+	
+		
+</div>
+		</div>
+	</div>
+	
+	
+	<a name="sec-functions"></a>	
+	<div class="info-box">
+		<div class="info-box-title">Functions</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+													<a href="#sec-constants">Constants</a>
+				|									<span class="disabled">Functions</span>
+		</div>
+		<div class="info-box-body">	
+			<a name="functionapcms_CheckAccess" id="functionapcms_CheckAccess"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_CheckAccess</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a215">215</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks if the given groups have access</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			apcms_CheckAccess
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$action</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$groups</span> = <span class="var-default">array()</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$action</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$groups</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionapcms_ChmodDirectory" id="functionapcms_ChmodDirectory"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_ChmodDirectory</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a431">431</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Chmodes a complete directory with its contents (recursive)</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			apcms_ChmodDirectory
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sourcedir</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$mode</span> = <span class="var-default">777</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sourcedir</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$mode</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionapcms_CryptPasswd" id="functionapcms_CryptPasswd"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_CryptPasswd</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a70">70</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Crypt a string with md5</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			apcms_CryptPasswd
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$pwd</span>)
+			</div>
+
+		
+	
+</div>
+<a name="functionapcms_DeleteDirectory" id="functionapcms_DeleteDirectory"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_DeleteDirectory</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a379">379</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Deletes a complete directory with its contents (recursive)</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			apcms_DeleteDirectory
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sourcedir</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sourcedir</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionapcms_die" id="functionapcms_die"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_die</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a50">50</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Make apcms emit an error message and terminate the script</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">null</span>
+		<span class="method-name">
+			apcms_die
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$msg</span>)
+			</div>
+
+		
+	
+</div>
+<a name="functionapcms_DisplayBoxContent" id="functionapcms_DisplayBoxContent"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_DisplayBoxContent</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a242">242</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates and returns some boxes</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			apcms_DisplayBoxContent
+		</span>
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$what</span> = <span class="var-default">&#039;loginform&#039;</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$what</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionapcms_ESC" id="functionapcms_ESC"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_ESC</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a194">194</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Escapes the string for inserting it into the database</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			apcms_ESC
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$string</span>)
+			</div>
+
+		
+	
+</div>
+<a name="functionapcms_GenRandomString" id="functionapcms_GenRandomString"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_GenRandomString</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a123">123</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">GGenerates a random string with specific length</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000-2004 by APP - Another PHP Program</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			apcms_GenRandomString
+		</span>
+					([<span class="var-type">int</span>&nbsp;<span class="var-name">$pwdLen</span> = <span class="var-default">32</span>], [<span class="var-type">const</span>&nbsp;<span class="var-name">$usables</span> = <span class="var-default">PWD_ALLOW_ALL</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$pwdLen</span><span class="var-description">: Length of the random string</span>			</li>
+					<li>
+				<span class="var-type">const</span>
+				<span class="var-name">$usables</span><span class="var-description">: alowed characters</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionapcms_getGDVersion" id="functionapcms_getGDVersion"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_getGDVersion</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a694">694</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the version string of the actual used gdlib</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			apcms_getGDVersion
+		</span>
+				()
+			</div>
+
+		
+	
+</div>
+<a name="functionapcms_GetHTML" id="functionapcms_GetHTML"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_GetHTML</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a322">322</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Fetches a complete Webpage from a given URI</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			apcms_GetHTML
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$url</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$url</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionapcms_haveGIFSupport" id="functionapcms_haveGIFSupport"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_haveGIFSupport</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a936">936</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks if gdlib supports gif images</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			apcms_haveGIFSupport
+		</span>
+				()
+			</div>
+
+		
+	
+</div>
+<a name="functionapcms_haveJPEGSupport" id="functionapcms_haveJPEGSupport"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_haveJPEGSupport</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a884">884</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks if gdlib supports jpeg images</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			apcms_haveJPEGSupport
+		</span>
+				()
+			</div>
+
+		
+	
+</div>
+<a name="functionapcms_havePNGSupport" id="functionapcms_havePNGSupport"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_havePNGSupport</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a910">910</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks if gdlib supports png images</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			apcms_havePNGSupport
+		</span>
+				()
+			</div>
+
+		
+	
+</div>
+<a name="functionapcms_haveTCSupport" id="functionapcms_haveTCSupport"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_haveTCSupport</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a751">751</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks if gdlib supports truecolor</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			apcms_haveTCSupport
+		</span>
+				()
+			</div>
+
+		
+	
+</div>
+<a name="functionapcms_haveTTFSupport" id="functionapcms_haveTTFSupport"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_haveTTFSupport</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a784">784</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks if gdlib supports truetype fonts</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			apcms_haveTTFSupport
+		</span>
+				()
+			</div>
+
+		
+	
+</div>
+<a name="functionapcms_haveWBMPSupport" id="functionapcms_haveWBMPSupport"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_haveWBMPSupport</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a858">858</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks if gdlib supports wbmp images</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			apcms_haveWBMPSupport
+		</span>
+				()
+			</div>
+
+		
+	
+</div>
+<a name="functionapcms_haveXBMSupport" id="functionapcms_haveXBMSupport"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_haveXBMSupport</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a832">832</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks if gdlib supports xbm images</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			apcms_haveXBMSupport
+		</span>
+				()
+			</div>
+
+		
+	
+</div>
+<a name="functionapcms_haveXPMSupport" id="functionapcms_haveXPMSupport"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_haveXPMSupport</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a806">806</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks if gdlib supports xpm images</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			apcms_haveXPMSupport
+		</span>
+				()
+			</div>
+
+		
+	
+</div>
+<a name="functionapcms_ImageResize" id="functionapcms_ImageResize"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_ImageResize</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a966">966</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Scales an image in size</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			apcms_ImageResize
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$image</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$maxwidth</span> = <span class="var-default">100</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$maxheight</span> = <span class="var-default">100</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$dontrename</span> = <span class="var-default">0</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$image</span><span class="var-description">: complete path to the image</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$maxwidth</span><span class="var-description">: maximum width</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$maxheight</span><span class="var-description">: maximum height</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$dontrename</span><span class="var-description">: Should the picture be renamed after resizing?</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionapcms_MaxUploadSize" id="functionapcms_MaxUploadSize"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_MaxUploadSize</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a644">644</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Calvulates the maximum alowed uploadsize</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			apcms_MaxUploadSize
+		</span>
+				()
+			</div>
+
+		
+	
+</div>
+<a name="functionapcms_simpleTextOut" id="functionapcms_simpleTextOut"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_simpleTextOut</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a487">487</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">simple Textoutput</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			apcms_simpleTextOut
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$string</span><span class="var-description">: Der Posting-Text</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionapcms_Strip" id="functionapcms_Strip"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_Strip</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a171">171</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Strips some dangerous content out of strings</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			apcms_Strip
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$string</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$leavetags</span> = <span class="var-default">0</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$leavetags</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionapcms_TextOut" id="functionapcms_TextOut"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_TextOut</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a513">513</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Advanced BBCode</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			apcms_TextOut
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$string</span><span class="var-description">: Der Posting-Text</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionapcms_ValidateEmail" id="functionapcms_ValidateEmail"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">apcms_ValidateEmail</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a86">86</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks an email adress</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000-2004 by APP - Another PHP Program</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			apcms_ValidateEmail
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$email</span><span class="var-description">: email to test</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionap_GetFormattedBytes" id="functionap_GetFormattedBytes"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<img src="../../media/images/Function.png" />
+		<span class="method-title">ap_GetFormattedBytes</span> (line <span class="line-number"><a href="../../__filesource/fsource_apcms_libraries--_libsfunctions.lib.php.html#a1060">1060</a></span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">formats the filesize string</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> 2000- by Alexander 'dma147' Mieland</li>
+				<li><span class="field">author:</span> Alexander Mieland</li>
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			ap_GetFormattedBytes
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$bytes</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$bytes</span><span class="var-description">: the number of bytes</span>			</li>
+				</ul>
+		
+	
+</div>
+		</div>
+	</div>
+	
+	<p class="notes" id="credit">
+		Documentation generated on Thu, 18 May 2006 00:14:48 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.3.0RC6</a>
+	</p>
+	</div></body>
+</html>
