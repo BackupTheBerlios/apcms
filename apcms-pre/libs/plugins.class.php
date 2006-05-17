@@ -21,6 +21,8 @@
  * @access public
  * @package apcms
  * @subpackage libraries
+ *
+ * $Id: plugins.class.php,v 1.4 2006/05/17 11:33:23 dma147 Exp $
  */
 
 /*)\
