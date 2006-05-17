@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage libraries
  * 
- * $Id: functions.lib.php,v 1.2 2006/05/17 11:47:35 dma147 Exp $
+ * $Id: functions.lib.php,v 1.3 2006/05/17 21:21:44 dma147 Exp $
  */
 
 /*)\
@@ -633,9 +633,449 @@ function apcms_TextOut($string) {
 
 
 
+/** 
+ * Calvulates the maximum alowed uploadsize
+ * 
+ * @access private
+ * @return array
+ * @author Alexander Mieland
+ * @copyright 2000- by Alexander 'dma147' Mieland
+ */ 
+function apcms_MaxUploadSize() { 
+	$post_max_size = ini_get('post_max_size');
+	$upload_max_filesize = ini_get('upload_max_filesize');
+	if (eregi("G", $post_max_size)) {
+		$pmfs1 = str_replace("G","",$post_max_size)." GBytes";
+		$post_max_size = str_replace("G","",$post_max_size) * 1000000000;
+	} elseif (eregi("M", $post_max_size)) {
+		$pmfs1 = str_replace("M","",$post_max_size)." MBytes";
+		$post_max_size = str_replace("M","",$post_max_size) * 1000000;
+	} elseif (eregi("K", $post_max_size)) {
+		$pmfs1 = str_replace("K","",$post_max_size)." KBytes";
+		$post_max_size = str_replace("K","",$post_max_size) * 1000;
+	}
+	if (eregi("G", $upload_max_filesize)) {
+		$pmfs2 = str_replace("G","",$upload_max_filesize)." GBytes";
+		$upload_max_filesize = str_replace("G","",$upload_max_filesize) * 1000000000;
+	} elseif (eregi("M", $upload_max_filesize)) {
+		$pmfs2 = str_replace("M","",$upload_max_filesize)." MBytes";
+		$upload_max_filesize = str_replace("M","",$upload_max_filesize) * 1000000;
+	} elseif (eregi("K", $upload_max_filesize)) {
+		$pmfs2 = str_replace("K","",$upload_max_filesize)." KBytes";
+		$upload_max_filesize = str_replace("K","",$upload_max_filesize) * 1000;
+	}
+	if ($post_max_size == $upload_max_filesize) {
+		$MAX_FILE_SIZE = $post_max_size;
+		$FORMATED_MAX_FILE_SIZE = $pmfs1;
+	} elseif ($post_max_size < $upload_max_filesize) {
+		$MAX_FILE_SIZE = $post_max_size;
+		$FORMATED_MAX_FILE_SIZE = $pmfs1;
+	} elseif ($post_max_size > $upload_max_filesize) {
+		$MAX_FILE_SIZE = $upload_max_filesize;
+		$FORMATED_MAX_FILE_SIZE = $pmfs2;
+	}
+	$array['MAX_FILE_SIZE'] = $MAX_FILE_SIZE;
+	$array['FORMATED_MAX_FILE_SIZE'] = $FORMATED_MAX_FILE_SIZE;
+	return $array;
+}
 
 
 
+
+
+/** 
+ * Gets the version string of the actual used gdlib
+ * 
+ * @access private
+ * @return string
+ * @author Alexander Mieland
+ * @copyright 2000- by Alexander 'dma147' Mieland
+ */ 
+function apcms_getGDVersion() { 
+	if (function_exists("gd_info")) { 
+		$gd_info = gd_info(); 
+		@reset ($gd_info); 
+		while (@list ($key, $val) = @each ($gd_info)) { 
+			if (eregi("ver", $key)) { 
+				$STRING = $gd_info[$key]; 
+				break 1; 
+			} 
+		} 
+		$STRING = str_replace("bundled","",$STRING); 
+		$STRING = str_replace("compatible","",$STRING); 
+		$STRING = str_replace(" ","",$STRING); 
+		$STRING = str_replace("(","",$STRING); 
+		$STRING = str_replace(")","",$STRING); 
+		$STRING = str_replace("<","",$STRING); 
+		$STRING = str_replace(">","",$STRING); 
+		$STRING = str_replace("=","",$STRING); 
+		$STRING = "".$STRING; 
+		$gdversion = $STRING; 
+	} else { 
+		ob_start(); 
+		$oldlevel=error_reporting(0); 
+		phpinfo(); 
+		error_reporting($oldlevel); 
+		$buffer=ob_get_contents(); 
+		ob_end_clean(); 
+		$quot1 = preg_quote('<b>GD Version</b>'); 
+		$STRING=preg_replace("|(.*)(".$quot1.")(.*)|siU", "\\3", $buffer); 
+		$quot2 = preg_quote('</td><td align="left">'); 
+		$quot3 = preg_quote('</td></tr>'); 
+		$STRING=preg_replace("|(".$quot2.")(.*)(".$quot3.")(.*)|siU", "\\2", $STRING); 
+		$firstpos = strpos($STRING, "\n"); 
+		$STRING = substr($STRING, 0, $firstpos); 
+		if (eregi(" or higher", $STRING)) { 
+			$STRING = str_replace(" or higher", "", $STRING); 
+		} elseif (eregi("or higher", $STRING)) { 
+			$STRING = str_replace("or higher", "", $STRING); 
+		} 
+		$STRING = "".$STRING; 
+		$gdversion = $STRING; 
+	} 
+	return $gdversion; 
+} 
+
+
+
+
+
+/** 
+ * Checks if gdlib supports truecolor
+ * 
+ * @access private
+ * @return bool
+ * @author Alexander Mieland
+ * @copyright 2000- by Alexander 'dma147' Mieland
+ */ 
+function apcms_haveTCSupport() { 
+	if (function_exists("imagecreatetruecolor")) { 
+		if (!$tmp = ImageCreateTrueColor (10, 10)) { 
+			$tcsupport = false; 
+		} else { 
+			$testcolor = ImageColorAllocate ($tmp, 211, 167, 168); 
+			ImageFill ($tmp, 0, 0, $testcolor); 
+			$cindex = imagecolorat ($tmp, 4, 4); 
+			if ($cindex != $testcolor) { 
+				$tcsupport = false; 
+			} else { 
+				$tcsupport = true; 
+			} 
+			ImageDestroy($tmp); 
+		} 
+	} else { 
+		$tcsupport = false; 
+	} 
+	return $tcsupport; 
+} 
+
+
+
+
+
+/** 
+ * Checks if gdlib supports truetype fonts
+ * 
+ * @access private
+ * @return bool
+ * @author Alexander Mieland
+ * @copyright 2000- by Alexander 'dma147' Mieland
+ */ 
+function apcms_haveTTFSupport() { 
+	if (function_exists("ImageTTFText")) { 
+		$ttfsupport = true; 
+	} else { 
+		$ttfsupport = false; 
+	} 
+	return $ttfsupport; 
+} 
+
+
+
+
+
+
+/** 
+ * Checks if gdlib supports xpm images
+ * 
+ * @access private
+ * @return bool
+ * @author Alexander Mieland
+ * @copyright 2000- by Alexander 'dma147' Mieland
+ */ 
+function apcms_haveXPMSupport() {
+	if (!defined("IMG_XPM")) {
+		$xpmsupport = false; 
+	} else {
+		if (ImageTypes() & IMG_XPM) { 
+			$xpmsupport = true; 
+		} else { 
+			$xpmsupport = false; 
+		}
+	}
+	return $xpmsupport; 
+} 
+
+
+
+
+
+
+/** 
+ * Checks if gdlib supports xbm images
+ * 
+ * @access private
+ * @return bool
+ * @author Alexander Mieland
+ * @copyright 2000- by Alexander 'dma147' Mieland
+ */ 
+function apcms_haveXBMSupport() { 
+	if (!defined("IMG_XBM")) {
+		$xbmsupport = false; 
+	} else {
+		if (ImageTypes() & IMG_XBM) { 
+			$xbmsupport = true; 
+		} else { 
+			$xbmsupport = false; 
+		}
+	}
+	return $xbmsupport; 
+} 
+
+
+
+
+
+
+/** 
+ * Checks if gdlib supports wbmp images
+ * 
+ * @access private
+ * @return bool
+ * @author Alexander Mieland
+ * @copyright 2000- by Alexander 'dma147' Mieland
+ */ 
+function apcms_haveWBMPSupport() { 
+	if (!defined("IMG_WBMP")) {
+		$wbmpsupport = false; 
+	} else {
+		if (ImageTypes() & IMG_WBMP) { 
+			$wbmpsupport = true; 
+		} else { 
+			$wbmpsupport = false; 
+		} 
+	}
+	return $wbmpsupport; 
+} 
+
+
+
+
+
+
+/** 
+ * Checks if gdlib supports jpeg images
+ * 
+ * @access private
+ * @return bool
+ * @author Alexander Mieland
+ * @copyright 2000- by Alexander 'dma147' Mieland
+ */ 
+function apcms_haveJPEGSupport() { 
+	if (!defined("IMG_JPG")) {
+		$jpegsupport = false; 
+	} else {
+		if (ImageTypes() & IMG_JPG) { 
+			$jpegsupport = true; 
+		} else { 
+			$jpegsupport = false; 
+		} 
+	}
+	return $jpegsupport; 
+} 
+
+
+
+
+
+
+/** 
+ * Checks if gdlib supports png images
+ * 
+ * @access private
+ * @return bool
+ * @author Alexander Mieland
+ * @copyright 2000- by Alexander 'dma147' Mieland
+ */ 
+function apcms_havePNGSupport() { 
+	if (!defined("IMG_PNG")) {
+		$pngsupport = false; 
+	} else {
+		if (ImageTypes() & IMG_PNG) { 
+			$pngsupport = true; 
+		} else { 
+			$pngsupport = false; 
+		} 
+	}
+	return $pngsupport; 
+} 
+
+
+
+
+
+
+/** 
+ * Checks if gdlib supports gif images
+ * 
+ * @access private
+ * @return bool
+ * @author Alexander Mieland
+ * @copyright 2000- by Alexander 'dma147' Mieland
+ */ 
+function apcms_haveGIFSupport() { 
+	if (!defined("IMG_GIF")) {
+		$gifsupport = false; 
+	}else {
+		if (ImageTypes() & IMG_GIF) { 
+			$gifsupport = true; 
+		} else { 
+			$gifsupport = false; 
+		} 
+	}
+	return $gifsupport; 
+} 
+
+
+
+
+
+
+/** 
+ * Scales an image in size
+ * 
+ * @param string $image complete path to the image
+ * @param int $maxwidth maximum width
+ * @param int $maxheight maximum height 
+ * @param  int $dontrename Should the picture be renamed after resizing?
+ * @access private
+ * @return string
+ * @author Alexander Mieland
+ * @copyright 2000- by Alexander 'dma147' Mieland
+ */ 
+function apcms_ImageResize($image, $maxwidth=100, $maxheight=100, $dontrename=0) { 
+	$lastpoint = strrpos($image, '.'); 
+	$withoutext = substr($image, 0, $lastpoint); 
+	$ext = substr($image, ($lastpoint+1), strlen($image)); 
+	$imagedata = GetImageSize($image); 
+	if ($imagedata[2] == 1)		{ $sim = ImageCreateFromGIF($image); } 
+	elseif ($imagedata[2] == 2)	{ $sim = ImageCreateFromJPEG($image); } 
+	elseif ($imagedata[2] == 3)	{ $sim = ImageCreateFromPNG($image); } 
+	if ($imagedata[0] > $maxwidth || $imagedata[1] > $maxheight) { 
+		if ($imagedata[0] > $maxwidth) { 
+			$factor_width = round(($imagedata[0] / $maxwidth), 2); 
+			$newwidth = $maxwidth; 
+			$newheight = round(($imagedata[1] / $factor_width)); 
+		} else { 
+			$newwidth = $imagedata[0]; 
+			$newheight = $imagedata[1]; 
+		} 
+		if ($newheight > $maxheight) { 
+			$factor_height = round(($newheight / $maxheight), 2); 
+			$newwidth = round(($newwidth / $factor_height)); 
+			$newheight = $maxheight; 
+		} 
+	} elseif ($imagedata[0] < $maxwidth || $imagedata[1] < $maxheight) { 
+		if ($imagedata[0] < $maxwidth) { 
+			$factor_width = round(($maxwidth / $imagedata[0]), 2); 
+			$newwidth = $maxwidth; 
+			$newheight = round(($imagedata[1] * $factor_width)); 
+		} else { 
+			$newwidth = $imagedata[0]; 
+			$newheight = $imagedata[1]; 
+		} 
+		if ($newheight < $maxheight) { 
+			$factor_height = round(($maxheight / $newheight), 2); 
+			$newwidth = round(($newwidth * $factor_height)); 
+			$newheight = $maxheight; 
+		} 
+		if ($newwidth > $maxwidth) { 
+			$factor_width = round(($newwidth / $maxwidth), 2); 
+			$newwidth = $maxwidth; 
+			$newheight = round(($newheight / $factor_width)); 
+		} elseif ($newheight > $maxheight) { 
+			$factor_height = round(($newheight / $maxheight), 2); 
+			$newwidth = round(($newwidth / $factor_height)); 
+			$newheight = $maxheight; 
+		} 
+	} else { 
+		$newwidth = $imagedata[0]; 
+		$newheight = $imagedata[1]; 
+	} 
+	
+	if ($dontrename>=1) {
+		$newimage = $withoutext.'.'.$ext; 
+		@unlink($newimage);
+	} else {
+		$newimage = $withoutext.'.thumb.'.$newwidth.'x'.$newheight.'.'.$ext; 
+	}
+	
+	if (!file_exists($newimage)) {
+		if (ap_haveTCSupport()) { 
+			$dim = ImageCreateTrueColor($newwidth, $newheight); 
+		} else { 
+			$dim = ImageCreate($newwidth, $newheight); 
+			} 
+		imagecopyresampled ($dim, $sim, 0, 0, 0, 0, $newwidth, $newheight, $imagedata[0], $imagedata[1]); 
+		if ($imagedata[2] == 1) { 
+			imageGIF($dim, $newimage); 
+		} elseif ($imagedata[2] == 2) { 
+			imageJPEG($dim, $newimage, 80); 
+		} elseif ($imagedata[2] == 3) { 
+			imagePNG($dim, $newimage); 
+		} 
+		imageDestroy($dim); 
+	}
+	imageDestroy($sim); 
+	$ARRAY['image'] = $newimage;
+	$ARRAY['data'] = "width=\"".$newwidth."\" height=\"".$newheight."\"";
+	$ARRAY['width'] = intval($newwidth);
+	$ARRAY['height'] = intval($newheight);
+	return $ARRAY; 
+} 
+
+
+
+
+
+/**
+ * formats the filesize string
+ *
+ * @param          int $bytes the number of bytes
+ * @access         private
+ * @return         string
+ * @author Alexander Mieland
+ * @copyright 2000- by Alexander 'dma147' Mieland
+ */
+function ap_GetFormattedBytes($bytes) {
+	$spacebytes = $bytes;
+	$spacekb = @round($bytes/1000,3);
+	if (!isset($spacekb) OR $spacekb <= 0) {
+		$spacekb = @round($bytes/1000);
+	}
+	$spacemb = @round((($bytes/1000)/1000),3);
+	if (!isset($spacemb) OR $spacemb <= 0) {
+		$spacemb = @round((($bytes/1000)/1000));
+	}
+	if (strlen($spacebytes) <= 6) {
+		$RET = str_replace(".",",",$spacekb)." Kbyte(s)";
+	} elseif (strlen($spacebytes) >= 7) {
+		$RET = str_replace(".",",",$spacemb)." Mbyte(s)";
+	} else {
+		$RET = $spacebytes." Bytes";
+	}
+	return $RET;
+}
 
 
 

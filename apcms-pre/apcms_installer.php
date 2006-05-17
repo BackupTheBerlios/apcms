@@ -21,12 +21,15 @@
  * @access public
  * @package apcms
  * 
- * $Id: apcms_installer.php,v 1.2 2006/05/17 11:47:34 dma147 Exp $
+ * $Id: apcms_installer.php,v 1.3 2006/05/17 21:21:44 dma147 Exp $
  */
 
 /*)\
 \(*/
 
+
+@ob_implicit_flush(1);
+@ob_flush();
 
 /**
  * Defines the installer constant
@@ -52,16 +55,48 @@ define('IN_apcms_admin', true);
  * Inclusion of the main configuration
  */
 include('config.inc.php');
+@ob_flush();
 
 if (!defined('IS_installed')) {
 	
 	
+	@ob_flush();
+	if (!isset($_GET['setup']['step'])) {
+		include("./setup/install/step.0.".$SUFFIX);
+		
+	} elseif (isset($_GET['setup']['step']) && intval($_GET['setup']['step']) == 1) {
+		include("./setup/install/step.1.".$SUFFIX);
+		
+	} elseif (isset($_GET['setup']['step']) && intval($_GET['setup']['step']) == 2) {
+		include("./setup/install/step.2.".$SUFFIX);
+		
+	} elseif (isset($_GET['setup']['step']) && intval($_GET['setup']['step']) == 3) {
+		include("./setup/install/step.3.".$SUFFIX);
+		
+	} elseif (isset($_GET['setup']['step']) && intval($_GET['setup']['step']) == 4) {
+		include("./setup/install/step.4.".$SUFFIX);
+		
+	} elseif (isset($_GET['setup']['step']) && intval($_GET['setup']['step']) == 5) {
+		include("./setup/install/step.5.".$SUFFIX);
+		
+	}
+	@ob_flush();
 	
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	@ob_flush();
 } else {
 	header("Location: ./index.php");
 }
+@ob_flush();
 
 ?>

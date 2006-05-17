@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage languages
  * 
- * $Id: de.lang.php,v 1.2 2006/05/17 11:47:35 dma147 Exp $
+ * $Id: de.lang.php,v 1.3 2006/05/17 21:21:44 dma147 Exp $
  */
 
 /*)\
@@ -75,12 +75,12 @@ $apcms['LANGUAGE']	=	array(
 	
 	
 	'REGISTER_TITLE'					=>		'Registrieren',
-	'REGISTER_SUBTITLE'					=>		'Registriere einen eigenen Account auf '.$apcms['title'],
+	'REGISTER_SUBTITLE'					=>		'Registriere einen eigenen Account auf '.(isset($apcms['title'])?$apcms['title']:""),
 	'REGISTER_DESCRIPTION'				=>		'Hier kannst Du Dir einen eigenen Account registrieren.',
 	'REGISTER_PASSWORD_TWICE'			=>		'Bitte das Passwort nochmal eingeben, um sicherzustellen, das es auch wirklich korrekt ist.',
 	'REGISTER_EMAIL'					=>		'EMail Adresse',
 	'REGISTER_SUBMIT'					=>		'Registrierung abschicken...',
-	'REGISTER_ACTMAIL_SUBJECT'			=>		'[REG] Deine Registrierung auf '.$apcms['title'],
+	'REGISTER_ACTMAIL_SUBJECT'			=>		'[REG] Deine Registrierung auf '.(isset($apcms['title'])?$apcms['title']:""),
 	'REGISTER_ACTMAIL_BODY'				=>		'Hallo {username},
 
 du hast Dich soeben bei uns registriert und möchtest 
@@ -97,7 +97,7 @@ folgenden Link klicken:
 Vielen Dank für Deine Registrierung und viel Spaß und
 Erfolg auf unseren Seiten!
 
-Das Team von '.$apcms['title'].'
+Das Team von '.(isset($apcms['title'])?$apcms['title']:"").'
 ',
 	
 	

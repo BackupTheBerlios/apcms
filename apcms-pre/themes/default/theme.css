@@ -213,6 +213,20 @@ body {
 	color: #000000;
 }
 
+.row1 {
+    padding: 2px;
+	font-size: 0.8em;
+    background-color: #f3f3f3;
+    line-height: 110%;
+}
+
+.row2 {
+    padding: 2px;
+	font-size: 0.8em;
+    background-color: #e9e9e9;
+    line-height: 110%;
+}
+
 .red {
 	color: #000000;
 	font-weight: bolder;

@@ -21,7 +21,7 @@
  * @access public
  * @package apcms
  * 
- * $Id: config.inc.php,v 1.2 2006/05/17 11:47:34 dma147 Exp $
+ * $Id: config.inc.php,v 1.3 2006/05/17 21:21:44 dma147 Exp $
  */
 
 /*)\
@@ -248,57 +248,62 @@ if (file_exists($PATH."/config.local.inc.".$SUFFIX)) {
 	include($PATH."/config.local.inc.".$SUFFIX);
 }
 
-/** 
- * Connect to the database 
- */
-include($PATH."/libs/database.func.".$SUFFIX);
+if (defined('IS_installed')) {
+	/** 
+	 * Connect to the database 
+	 */
+	include($PATH."/libs/database.func.".$SUFFIX);
+}
 
 if (isset($MYSQLDATA['PREFIX']) && trim($MYSQLDATA['PREFIX']) != "") {
 	$ptrenner = "_";
 } else {
 	$ptrenner = "";
 }
-/** 
- * Holds the whole mysql-prefix for the tables
- */
-$apcms['mysql_prefix'] = $MYSQLDATA['PREFIX'].$ptrenner.$MYSQLDATA['UNIQUE'].'_';
 
-$pgrep = preg_quote($MYSQLDATA['PREFIX'].$ptrenner.$MYSQLDATA['UNIQUE']);
-$rettables = $db->unbuffered_getAll_row("SHOW TABLES");
-for ($a=0;$a<count($rettables);$a++) {
-	if (ereg("^".$MYSQLDATA['PREFIX'].$ptrenner.$MYSQLDATA['UNIQUE'], stripslashes(trim($rettables[$a][0]))) && !ereg("_plugin_", stripslashes(trim($rettables[$a][0])))) {
-		$table = stripslashes(trim($rettables[$a][0]));
-		$group = preg_replace("`".$pgrep."_([^_]+)_[^_]+$`", "\\1", $table);
-		$name  = preg_replace("`".$pgrep."_[^_]+_([^_]+)$`", "\\1", $table);
-		$apcms['table'][$group][$name] = $apcms['mysql_prefix'].$group.'_'.$name.'';
+
+if (defined('IS_installed')) {
+	/** 
+	 * Holds the whole mysql-prefix for the tables
+	 */
+	$apcms['mysql_prefix'] = $MYSQLDATA['PREFIX'].$ptrenner.$MYSQLDATA['UNIQUE'].'_';
+	
+	$pgrep = preg_quote($MYSQLDATA['PREFIX'].$ptrenner.$MYSQLDATA['UNIQUE']);
+	$rettables = $db->unbuffered_getAll_row("SHOW TABLES");
+	for ($a=0;$a<count($rettables);$a++) {
+		if (ereg("^".$MYSQLDATA['PREFIX'].$ptrenner.$MYSQLDATA['UNIQUE'], stripslashes(trim($rettables[$a][0]))) && !ereg("_plugin_", stripslashes(trim($rettables[$a][0])))) {
+			$table = stripslashes(trim($rettables[$a][0]));
+			$group = preg_replace("`".$pgrep."_([^_]+)_[^_]+$`", "\\1", $table);
+			$name  = preg_replace("`".$pgrep."_[^_]+_([^_]+)$`", "\\1", $table);
+			$apcms['table'][$group][$name] = $apcms['mysql_prefix'].$group.'_'.$name.'';
+		}
 	}
+	$retconf = $db->unbuffered_query_first("SELECT * FROM `".$apcms['table']['global']['config']."`");
+	/** 
+	 * Holds the title of the page
+	 */
+	$apcms['title'] = htmlspecialchars(stripslashes(trim($retconf[0])));
+	/** 
+	 * Holds the subtitle of the page
+	 */
+	$apcms['subtitle'] = htmlspecialchars(stripslashes(trim($retconf[1])));
+	/** 
+	 * Holds the description of the page
+	 */
+	$apcms['description'] = htmlspecialchars(stripslashes(trim($retconf[2])));
+	/** 
+	 * Holds the session lifetime in seconds
+	 */
+	$apcms['sesslifetime'] = intval($retconf[3]);
+	/** 
+	 * Holds the EMail name of the page
+	 */
+	$apcms['emailfrom'] = stripslashes(trim($retconf[4]));
+	/** 
+	 * Holds the EMail address of the page
+	 */
+	$apcms['emailadress'] = stripslashes(trim($retconf[5]));
 }
-
-$retconf = $db->unbuffered_query_first("SELECT * FROM `".$apcms['table']['global']['config']."`");
-/** 
- * Holds the title of the page
- */
-$apcms['title'] = htmlspecialchars(stripslashes(trim($retconf[0])));
-/** 
- * Holds the subtitle of the page
- */
-$apcms['subtitle'] = htmlspecialchars(stripslashes(trim($retconf[1])));
-/** 
- * Holds the description of the page
- */
-$apcms['description'] = htmlspecialchars(stripslashes(trim($retconf[2])));
-/** 
- * Holds the session lifetime in seconds
- */
-$apcms['sesslifetime'] = intval($retconf[3]);
-/** 
- * Holds the EMail name of the page
- */
-$apcms['emailfrom'] = stripslashes(trim($retconf[4]));
-/** 
- * Holds the EMail address of the page
- */
-$apcms['emailadress'] = stripslashes(trim($retconf[5]));
 
 $userid = 0;
 if (isset($apcms['COOKIE']['userid']) && intval($apcms['COOKIE']['userid']) >= 1) {
@@ -367,22 +372,23 @@ require_once($PATH."/lang/".$LANG.".lang.".$SUFFIX);
 require_once($PATH."/libs/plugins.class.".$SUFFIX);
 $hook = new apcms_Plugin();
 
-$retplugins = $db->unbuffered_getAll_row("SELECT * FROM `".$apcms['table']['global']['plugins']."` WHERE `active`='1'");
-if(count($retplugins) >= 1) {
-	for($a=0;$a<count($retplugins);$a++) {
-		$plugin_id = intval($retplugins[$a][0]);
-		$plugin_name = stripslashes(trim($retplugins[$a][1]));
-		$plugin_md5 = stripslashes(trim($retplugins[$a][2]));
-		$plugin_config = stripslashes(trim($retplugins[$a][4]));
-		require_once($PATH."/plugins/".$plugin_name."/".$plugin_name.".".$SUFFIX);
-		$apcms['PLUGIN'][$plugin_name] = new $plugin_name();
-		$plugin[$plugin_name]['id'] = $plugin_id;
-		$plugin[$plugin_name]['name'] = $plugin_name;
-		$plugin[$plugin_name]['md5'] = $plugin_md5;
-		$plugin[$plugin_name]['config'] = unserialize($plugin_config);
+if (defined('IS_installed')) {
+	$retplugins = $db->unbuffered_getAll_row("SELECT * FROM `".$apcms['table']['global']['plugins']."` WHERE `active`='1'");
+	if(count($retplugins) >= 1) {
+		for($a=0;$a<count($retplugins);$a++) {
+			$plugin_id = intval($retplugins[$a][0]);
+			$plugin_name = stripslashes(trim($retplugins[$a][1]));
+			$plugin_md5 = stripslashes(trim($retplugins[$a][2]));
+			$plugin_config = stripslashes(trim($retplugins[$a][4]));
+			require_once($PATH."/plugins/".$plugin_name."/".$plugin_name.".".$SUFFIX);
+			$apcms['PLUGIN'][$plugin_name] = new $plugin_name();
+			$plugin[$plugin_name]['id'] = $plugin_id;
+			$plugin[$plugin_name]['name'] = $plugin_name;
+			$plugin[$plugin_name]['md5'] = $plugin_md5;
+			$plugin[$plugin_name]['config'] = unserialize($plugin_config);
+		}
 	}
 }
-
 
 /** 
  * Including some handlers 
