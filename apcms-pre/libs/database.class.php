@@ -21,6 +21,8 @@
  * @access public
  * @package apcms
  * @subpackage libraries
+ * 
+ * $Id: database.class.php,v 1.2 2006/05/17 11:47:35 dma147 Exp $
  */
 
 /*)\

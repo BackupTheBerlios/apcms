@@ -20,6 +20,8 @@
  * @author Alexander 'dma147' Mieland <dma147@php-programs.de>
  * @access public
  * @package apcms
+ * 
+ * $Id: index.php,v 1.2 2006/05/17 11:47:34 dma147 Exp $
  */
 
 /*)\
