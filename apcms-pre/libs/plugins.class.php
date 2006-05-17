@@ -171,6 +171,32 @@ class apcms_Plugin {
 		return $this->belowCopyright;
 	}
 	
+	
+	
+	
+	
+	
+	
+	function HookIn($md5, $content) {
+		$this->Hook[$md5] .= $content;
+	}
+	
+	
+	function HookOut() {
+		return $this->Hook[$md5];
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 
 
