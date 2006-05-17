@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `apcms_1_global_plugins` (
   PRIMARY KEY  (`id`),
   KEY `name` (`name`),
   KEY `active` (`active`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 -- 
 -- Daten für Tabelle `apcms_1_global_plugins`
@@ -103,8 +103,7 @@ CREATE TABLE IF NOT EXISTS `apcms_1_global_plugins` (
 
 INSERT INTO `apcms_1_global_plugins` (`id`, `name`, `md5`, `active`, `config`, `version`) VALUES (1, 'apcms_plugin_example', 'c79b45c08beb08b57867d0f067d475b8', 1, 'a:3:{s:5:"title";s:14:"Example plugin";s:8:"foofield";s:14:"content of foo";s:8:"barfield";i:1234;}', '0.0.1'),
 (2, 'apcms_sidebar_poweredby', 'd2c8e21b62e8f2bb098830ccd4f70c5b', 1, 'a:0:{}', '0.0.2'),
-(3, 'apcms_sidebar_adminbox', 'bf97756d30018c1db492f59a07a42870', 1, 'a:0:{}', '0.0.1'),
-(4, 'apcms_plugin_newsmanagement', '8373e115bafdced700ef5269fb0e093c', 1, 'a:5:{s:14:"items_per_page";i:15;s:10:"dateformat";s:10:"d.m.Y, H:i";s:11:"show_author";b:1;s:10:"use_bbcode";b:1;s:14:"guest_comments";b:1;}', '0.0.2');
+(3, 'apcms_sidebar_adminbox', 'bf97756d30018c1db492f59a07a42870', 1, 'a:0:{}', '0.0.1');
 
 -- --------------------------------------------------------
 
@@ -209,58 +208,3 @@ CREATE TABLE IF NOT EXISTS `apcms_1_plugin_example` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
--- 
--- Daten für Tabelle `apcms_1_plugin_example`
--- 
-
-
--- --------------------------------------------------------
-
--- 
--- Tabellenstruktur für Tabelle `apcms_1_plugin_newsmanagement_comments`
--- 
-
-DROP TABLE IF EXISTS `apcms_1_plugin_newsmanagement_comments`;
-CREATE TABLE IF NOT EXISTS `apcms_1_plugin_newsmanagement_comments` (
-  `id` int(11) NOT NULL auto_increment,
-  `nid` int(11) NOT NULL default '0',
-  `uid` int(11) NOT NULL default '0',
-  `postdate` int(11) NOT NULL default '0',
-  `title` varchar(64) NOT NULL,
-  `body` text NOT NULL,
-  PRIMARY KEY  (`id`),
-  KEY `nid` (`nid`),
-  KEY `uid` (`uid`),
-  KEY `postdate` (`postdate`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- 
--- Daten für Tabelle `apcms_1_plugin_newsmanagement_comments`
--- 
-
-
--- --------------------------------------------------------
-
--- 
--- Tabellenstruktur für Tabelle `apcms_1_plugin_newsmanagement_news`
--- 
-
-DROP TABLE IF EXISTS `apcms_1_plugin_newsmanagement_news`;
-CREATE TABLE IF NOT EXISTS `apcms_1_plugin_newsmanagement_news` (
-  `id` int(11) NOT NULL auto_increment,
-  `uid` int(11) NOT NULL default '0',
-  `postdate` int(11) NOT NULL default '0',
-  `title` varchar(64) NOT NULL,
-  `body` text NOT NULL,
-  `extbody` text NOT NULL,
-  `views` int(11) NOT NULL default '0',
-  PRIMARY KEY  (`id`),
-  KEY `uid` (`uid`),
-  KEY `postdate` (`postdate`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
--- 
--- Daten für Tabelle `apcms_1_plugin_newsmanagement_news`
--- 
-
-INSERT INTO `apcms_1_plugin_newsmanagement_news` (`id`, `uid`, `postdate`, `title`, `body`, `extbody`, `views`) VALUES (1, 1, 1147796951, 'Willkommen in Deinem APCms', 'Du hast soeben das APCms erfolgreich installiert!\r\nHerzlichen Glückwunsch für diese Entscheidung.', 'Du kannst diese News in der News-Verwaltung ändern oder löschen.\r\n\r\nViel Spaß mit Deinem APCms!', 0);
