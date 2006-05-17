@@ -177,13 +177,35 @@ class apcms_Plugin {
 	
 	
 	
-	function HookIn($md5, $content) {
-		$this->Hook[$md5] .= $content;
+	/**
+	* Sets the content of a general hook
+	*
+	* @access public
+	* @param mixed A unique id
+	* @param string the content
+	* @author Alexander Mieland
+	* @copyright 2000- by Alexander 'dma147' Mieland
+	*/
+	function HookIn($id, $content) {
+		$this->Hook[$id] .= $content;
 	}
 	
 	
-	function HookOut() {
-		return $this->Hook[$md5];
+	
+	
+	
+	
+	/**
+	* Gets and returns the content of general hook
+	*
+	* @access public
+	* @param mixed A unique id
+	* @return string the content
+	* @author Alexander Mieland
+	* @copyright 2000- by Alexander 'dma147' Mieland
+	*/
+	function HookOut($id) {
+		return $this->Hook[$id];
 	}
 	
 	
