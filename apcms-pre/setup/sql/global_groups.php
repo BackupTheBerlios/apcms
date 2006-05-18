@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: global_groups.php,v 1.3 2006/05/18 12:15:14 dma147 Exp $
+ * $Id: global_groups.php,v 1.4 2006/05/18 12:18:52 dma147 Exp $
  */
 
 /*)\
@@ -38,7 +38,7 @@ echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$ap
 $query1 = "DROP TABLE IF EXISTS `".$table."`";
 $db->unbuffered_query($query1);
 @ob_flush();
-usleep(5000);;
+usleep(50000);;
 @ob_flush();
 
 
@@ -52,7 +52,7 @@ $query2 = "CREATE TABLE IF NOT EXISTS `".$table."` (
 ) DEFAULT CHARSET=utf8 AUTO_INCREMENT=4";
 $db->unbuffered_query($query2);
 @ob_flush();
-usleep(5000);;
+usleep(50000);;
 @ob_flush();
 
 
@@ -63,7 +63,7 @@ $query3 = "INSERT INTO `".$table."` (`id`, `name`, `desc`) VALUES (1, 'Administr
 (3, 'Members', 'The group for all normal registered and logged in users')";
 $db->unbuffered_query($query3);
 @ob_flush();
-usleep(5000);;
+usleep(50000);;
 @ob_flush();
 
 
