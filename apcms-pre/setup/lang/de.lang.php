@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: de.lang.php,v 1.4 2006/05/18 10:20:31 dma147 Exp $
+ * $Id: de.lang.php,v 1.5 2006/05/18 10:30:16 dma147 Exp $
  */
 
 /*)\
@@ -39,9 +39,9 @@ $apcms['LANGUAGE']	=	array(
 	'ACTIVATED'						=>		'Aktiviert',
 	'DEACTIVATED'					=>		'Deaktiviert',
 	'CONTINUE'						=>		'Weiter ...',
-	
+	'hidden'						=>		'Versteckt',
 	'PHPVERSION'					=>		'PHP Version',
-	
+	'START_INSTALLATION'			=>		'Installation jetzt starten!',
 	
 	
 	'STEP0_WELCOME'					=>		'Hallo und willkommen im Setup-Interface Deines APCms!',

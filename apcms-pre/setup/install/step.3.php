@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: step.3.php,v 1.3 2006/05/18 10:20:31 dma147 Exp $
+ * $Id: step.3.php,v 1.4 2006/05/18 10:30:16 dma147 Exp $
  */
 
 /*)\
@@ -68,6 +68,85 @@ if (isset($_POST['step']) && intval($_POST['step']) == 3) {
 	if (!isset($error) || trim($error) == "") {
 		
 		echo $apcms['LANGUAGE']['STEP3_FINAL_CHECK']."<br />\n<br />\n";
+		
+		
+		echo "\n<div id=\"content1\">\n";
+		echo "<form name=\"setupform\" action=\"".$_SERVER['PHP_SELF']."?setup[step]=4\" method=\"post\">\n";
+		echo "	<input type=\"hidden\" name=\"step\" value=\"4\" />\n";
+		echo "	<table width=\"100%\" border=\"0\" cellspacing=\"1\" cellpadding=\"3\">\n";
+		
+		
+		echo "		<tr class=\"content2\">\n";
+		echo "			<td valign=\"top\"><b>".$apcms['LANGUAGE']['STEP1_HOSTNAME']."</b></td>\n";
+		echo "			<td width=\"230\" align=\"right\" valign=\"top\">".(isset($_SESSION['form']['hostname'])&&trim($_SESSION['form']['hostname'])!=""?$_SESSION['form']['hostname']:'localhost')."</td>\n";
+		echo "		</tr>\n";
+		
+		echo "		<tr class=\"content2\">\n";
+		echo "			<td valign=\"top\"><b>".$apcms['LANGUAGE']['STEP1_USERNAME']."</b></td>\n";
+		echo "			<td width=\"230\" align=\"right\" valign=\"top\">".(isset($_SESSION['form']['username'])&&trim($_SESSION['form']['username'])!=""?$_SESSION['form']['username']:'')."</td>\n";
+		echo "		</tr>\n";
+		
+		echo "		<tr class=\"content2\">\n";
+		echo "			<td valign=\"top\"><b>".$apcms['LANGUAGE']['STEP1_PASSWORD']."</b></td>\n";
+		echo "			<td width=\"230\" align=\"right\" valign=\"top\">[".$apcms['LANGUAGE']['hidden']."]</td>\n";
+		echo "		</tr>\n";
+		
+		echo "		<tr class=\"content2\">\n";
+		echo "			<td valign=\"top\"><b>".$apcms['LANGUAGE']['STEP1_DATABASE']."</b></td>\n";
+		echo "			<td width=\"230\" align=\"right\" valign=\"top\">".(isset($_SESSION['form']['database'])&&trim($_SESSION['form']['database'])!=""?$_SESSION['form']['database']:'apcms')."</td>\n";
+		echo "		</tr>\n";
+		
+		echo "		<tr class=\"content2\">\n";
+		echo "			<td valign=\"top\"><b>".$apcms['LANGUAGE']['STEP1_PREFIX']."</b></td>\n";
+		echo "			<td width=\"230\" align=\"right\" valign=\"top\">".(isset($_SESSION['form']['prefix'])&&trim($_SESSION['form']['prefix'])!=""?$_SESSION['form']['prefix']:'apcms_1_')."</td>\n";
+		echo "		</tr>\n";
+		
+		echo "		<tr class=\"content2\">\n";
+		echo "			<td colspan=\"2\"><hr size=\"1\" noshade=\"noshade\"></td>\n";
+		echo "		</tr>\n";
+		
+		echo "		<tr class=\"content2\">\n";
+		echo "			<td valign=\"top\"><b>".$apcms['LANGUAGE']['STEP2_ADMIN_USERNAME']."</b></td>\n";
+		echo "			<td width=\"230\" align=\"right\" valign=\"top\">".(isset($_SESSION['form']['admin_username'])&&trim($_SESSION['form']['admin_username'])!=""?$_SESSION['form']['admin_username']:'')."</td>\n";
+		echo "		</tr>\n";
+		
+		echo "		<tr class=\"content2\">\n";
+		echo "			<td valign=\"top\"><b>".$apcms['LANGUAGE']['STEP2_ADMIN_PASSWORD']."</b></td>\n";
+		echo "			<td width=\"230\" align=\"right\" valign=\"top\">[".$apcms['LANGUAGE']['hidden']."]</td>\n";
+		echo "		</tr>\n";
+		
+		echo "		<tr class=\"content2\">\n";
+		echo "			<td valign=\"top\"><b>".$apcms['LANGUAGE']['STEP2_ADMIN_EMAIL']."</b></td>\n";
+		echo "			<td width=\"230\" align=\"right\" valign=\"top\">".(isset($_SESSION['form']['admin_email'])&&trim($_SESSION['form']['admin_email'])!=""?$_SESSION['form']['admin_email']:'')."</td>\n";
+		echo "		</tr>\n";
+		
+		
+		
+		echo "		<tr>\n";
+		echo "			<td colspan=\"2\" align=\"center\">
+								<label for=\"submit\" accesskey=\"s\" tabindex=\"4\">
+									<input id=\"submit\" type=\"submit\" name=\"submit\" value=\"".$apcms['LANGUAGE']['START_INSTALLATION']."\" />
+								</label>
+							</td>\n";
+		echo "		</tr>\n";
+		
+		
+		echo "	</table>\n";
+		echo "</form>\n";
+		echo "</div><br />\n";
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
