@@ -22,22 +22,25 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: step.4.php,v 1.3 2006/05/18 10:48:44 dma147 Exp $
+ * $Id: step.4.php,v 1.4 2006/05/18 11:15:59 dma147 Exp $
  */
 
 /*)\
 \(*/
 
 
+@ob_flush();
 if (!isset($_SESSION['lang'])) {
 	$_SESSION['lang'] = 'de';
 }
 include("./setup/lang/".$_SESSION['lang'].".lang.".$SUFFIX);
+@ob_flush();
 $sidebar = '';
 
 
 
 if (isset($_POST['step']) && intval($_POST['step']) == 4) {
+	@ob_flush();
 	
 	if (!isset($_SESSION['form']['hostname']) || trim($_SESSION['form']['hostname']) == "") {
 		$error = $apcms['LANGUAGE']['STEP1_NO_HOSTNAME'];
@@ -75,18 +78,16 @@ if (isset($_POST['step']) && intval($_POST['step']) == 4) {
 		$redirect_time = 3;
 	
 	}
-	
+	@ob_flush();
 	
 	
 	include("./setup/header.".$SUFFIX);
-	
+	@ob_flush();
 	
 	if (!isset($error) || trim($error) == "") {
-		
-		echo "Starte Installation...";
-		
-		
-		
+		@ob_flush();
+		echo "<b>".$apcms['LANGUAGE']['STEP4_STARTING_INSTALLATION']."</b><br />\n<br />\n";
+		@ob_flush();
 		
 		
 		
@@ -103,14 +104,17 @@ if (isset($_POST['step']) && intval($_POST['step']) == 4) {
 		
 		
 		
+		
+		@ob_flush();
 	}
-	
+	@ob_flush();
 	
 	include("./setup/footer.".$SUFFIX);
+	@ob_flush();
 }
 
 
 
 
-
+@ob_flush();
 ?>

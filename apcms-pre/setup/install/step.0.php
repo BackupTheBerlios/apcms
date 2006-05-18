@@ -22,22 +22,24 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: step.0.php,v 1.2 2006/05/18 09:06:16 dma147 Exp $
+ * $Id: step.0.php,v 1.3 2006/05/18 11:15:59 dma147 Exp $
  */
 
 /*)\
 \(*/
 
 
+@ob_flush();
 $sidebar = '';
 if (!isset($_SESSION['lang'])) {
 	$_SESSION['lang'] = 'de';
 }
+@ob_flush();
 include("./setup/lang/".$_SESSION['lang'].".lang.".$SUFFIX);
-
+@ob_flush();
 
 include("./setup/header.".$SUFFIX);
-
+@ob_flush();
 
 $WRITEABLEDIRS = array(
 	$apcms['path'], 
@@ -47,8 +49,11 @@ $WRITEABLEDIRS = array(
 );
 
 echo "<b>".$apcms['LANGUAGE']['STEP0_WELCOME']."</b><br /><br />\n";
+@ob_flush();
 echo $apcms['LANGUAGE']['STEP0_WELCOME_BLAHBLAH']."<br /><br />\n";
+@ob_flush();
 echo $apcms['LANGUAGE']['STEP0_SOME_INFORMATION']."<br />\n";
+@ob_flush();
 
 echo '<br />
  <table width="100%" border="0" cellspacing="1" cellpadding="3">
@@ -126,9 +131,12 @@ echo '<br />
    <td><span style="color: green">'.get_cfg_var("upload_max_filesize").'</span></td>
   </tr>';
 
+@ob_flush();
+
 $row = "row1";
 $rederror = 0;
 for ($a=0;$a<count($WRITEABLEDIRS);$a++) {
+	@ob_flush();
 	if ($row == "row1") { $row = "row2"; } else { $row = "row1"; }
 	if (!is_writeable($WRITEABLEDIRS[$a])) {
 		$rederror = 1;
@@ -139,8 +147,10 @@ for ($a=0;$a<count($WRITEABLEDIRS);$a++) {
 	   <td><span style="'.((is_writeable($WRITEABLEDIRS[$a])) ? ('color: green') : ('color: red; font-weight: bolder')).'">'.((is_writeable($WRITEABLEDIRS[$a])) ? $apcms['LANGUAGE']['YES'] : $apcms['LANGUAGE']['NO']).'</span></td>
 	  </tr>
 	';
+	@ob_flush();
 }
 echo '</table><br />';
+@ob_flush();
 
 if ($rederror == 1) {
 	echo $apcms['LANGUAGE']['STEP0_SOME_RED']."<br />\n";
@@ -152,7 +162,9 @@ if ($rederror == 1) {
 	echo "	</form>\n";
 	echo "</div>\n<br />\n";
 }
+@ob_flush();
 
 include("./setup/footer.".$SUFFIX);
+@ob_flush();
 
 ?>

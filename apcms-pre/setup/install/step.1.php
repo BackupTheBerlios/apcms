@@ -22,21 +22,25 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: step.1.php,v 1.5 2006/05/18 10:11:45 dma147 Exp $
+ * $Id: step.1.php,v 1.6 2006/05/18 11:15:59 dma147 Exp $
  */
 
 /*)\
 \(*/
 
 
+@ob_flush();
 if (!isset($_SESSION['lang'])) {
 	$_SESSION['lang'] = 'de';
 }
+@ob_flush();
 include("./setup/lang/".$_SESSION['lang'].".lang.".$SUFFIX);
+@ob_flush();
 $sidebar = $apcms['LANGUAGE']['STEP1_HINT1'];
 
 
 include("./setup/header.".$SUFFIX);
+@ob_flush();
 
 echo "\n<div id=\"content1\">\n";
 echo "	<table width=\"100%\" border=\"0\" cellspacing=\"1\" cellpadding=\"3\">\n";
@@ -47,12 +51,13 @@ echo "			</td>\n";
 echo "		</tr>\n";
 echo "	</table>\n";
 echo "</div><br />\n";
-
+@ob_flush();
 
 echo "\n<div id=\"content1\">\n";
 echo "<form name=\"setupform\" action=\"".$_SERVER['PHP_SELF']."?setup[step]=2\" method=\"post\">\n";
 echo "	<input type=\"hidden\" name=\"step\" value=\"2\" />\n";
 echo "	<table width=\"100%\" border=\"0\" cellspacing=\"1\" cellpadding=\"3\">\n";
+@ob_flush();
 
 echo "		<tr class=\"content2\">\n";
 echo "			<td valign=\"top\">\n";
@@ -62,6 +67,7 @@ echo "			<td width=\"230\" align=\"right\" valign=\"top\">\n";
 echo "				<input id=\"hostname\" type=\"text\" name=\"form[hostname]\" value=\"".(isset($_SESSION['form']['hostname'])&&trim($_SESSION['form']['hostname'])!=""?$_SESSION['form']['hostname']:'localhost')."\" style=\"width:100%\" />\n";
 echo "			</td>\n";
 echo "		</tr>\n";
+@ob_flush();
 
 echo "		<tr class=\"content2\">\n";
 echo "			<td valign=\"top\">\n";
@@ -71,6 +77,7 @@ echo "			<td width=\"230\" align=\"right\" valign=\"top\">\n";
 echo "				<input id=\"username\" type=\"text\" name=\"form[username]\" value=\"".(isset($_SESSION['form']['username'])&&trim($_SESSION['form']['username'])!=""?$_SESSION['form']['username']:'')."\" style=\"width:100%\" />\n";
 echo "			</td>\n";
 echo "		</tr>\n";
+@ob_flush();
 
 echo "		<tr class=\"content2\">\n";
 echo "			<td valign=\"top\">\n";
@@ -80,6 +87,7 @@ echo "			<td width=\"230\" align=\"right\" valign=\"top\">\n";
 echo "				<input id=\"password\" type=\"password\" name=\"form[password]\" value=\"".(isset($_SESSION['form']['password'])&&trim($_SESSION['form']['password'])!=""?$_SESSION['form']['password']:'')."\" style=\"width:100%\" />\n";
 echo "			</td>\n";
 echo "		</tr>\n";
+@ob_flush();
 
 echo "		<tr class=\"content2\">\n";
 echo "			<td valign=\"top\">\n";
@@ -89,6 +97,7 @@ echo "			<td width=\"230\" align=\"right\" valign=\"top\">\n";
 echo "				<input id=\"database\" type=\"text\" name=\"form[database]\" value=\"".(isset($_SESSION['form']['database'])&&trim($_SESSION['form']['database'])!=""?$_SESSION['form']['database']:'apcms')."\" style=\"width:100%\" />\n";
 echo "			</td>\n";
 echo "		</tr>\n";
+@ob_flush();
 
 echo "		<tr class=\"content2\">\n";
 echo "			<td valign=\"top\">\n";
@@ -98,6 +107,7 @@ echo "			<td width=\"230\" align=\"right\" valign=\"top\">\n";
 echo "				<input id=\"prefix\" type=\"text\" name=\"form[prefix]\" value=\"".(isset($_SESSION['form']['prefix'])&&trim($_SESSION['form']['prefix'])!=""?$_SESSION['form']['prefix']:'apcms_1_')."\" style=\"width:100%\" />\n";
 echo "			</td>\n";
 echo "		</tr>\n";
+@ob_flush();
 
 
 echo "		<tr>\n";
@@ -107,15 +117,16 @@ echo "			<td colspan=\"2\" align=\"center\">
 						</label>
 					</td>\n";
 echo "		</tr>\n";
-
+@ob_flush();
 
 echo "	</table>\n";
 echo "</form>\n";
 echo "</div><br />\n";
-
+@ob_flush();
 
 
 
 include("./setup/footer.".$SUFFIX);
+@ob_flush();
 
 ?>

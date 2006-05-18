@@ -21,12 +21,15 @@
  * @access public
  * @package apcms
  * 
- * $Id: apcms_installer.php,v 1.5 2006/05/18 09:45:54 dma147 Exp $
+ * $Id: apcms_installer.php,v 1.6 2006/05/18 11:15:59 dma147 Exp $
  */
 
 /*)\
 \(*/
 
+
+@ob_implicit_flush(1);
+@ob_flush();
 
 /**
  * Defines the installer constant
@@ -52,9 +55,11 @@ define('IN_apcms_admin', true);
  * Inclusion of the main configuration
  */
 include('config.inc.php');
+@ob_flush();
 
 if (!defined('IS_installed')) {
 	
+	@ob_flush();
 	
 	if (!isset($_GET['setup']['step'])) {
 		include("./setup/install/step.0.".$SUFFIX);
@@ -75,6 +80,7 @@ if (!defined('IS_installed')) {
 		include("./setup/install/step.5.".$SUFFIX);
 		
 	}
+	@ob_flush();
 	
 	
 	
@@ -85,12 +91,11 @@ if (!defined('IS_installed')) {
 	
 	
 	
-	
-	
+	@ob_flush();
 } else {
 	header("Location: ./index.php");
 }
-
+@ob_flush();
 
 $DEBUGOUT .= "<br />\n<br />\n<br />\n\n<pre>";
 ob_start();
@@ -105,7 +110,7 @@ $DEBUGOUT .= "<strong>\$_SESSION:</strong>\n".$debug_session;
 $DEBUGOUT .= "\n\n<strong>\$apcms:</strong>\n".$debug_apcms;
 $DEBUGOUT .= "</pre>";
 echo $DEBUGOUT;
-
+@ob_flush();
 
 
 ?>

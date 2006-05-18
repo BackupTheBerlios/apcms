@@ -22,13 +22,14 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: header.php,v 1.3 2006/05/18 09:20:29 dma147 Exp $
+ * $Id: header.php,v 1.4 2006/05/18 11:15:59 dma147 Exp $
  */
 
 /*)\
 \(*/
 
 
+@ob_flush();
 echo '<?xml version="1.0" encoding="iso-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="copy.xsl"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -53,7 +54,9 @@ if (isset($redirect_url) && trim($redirect_url) != "") {
 		$redirect_time = 3;
 	}
 	echo '	<meta http-equiv="refresh" content="'.$redirect_time.'; URL='.$redirect_url.'" />'."\n";
+	@ob_flush();
 }
+@ob_flush();
 echo '	<link rel="stylesheet" href="'.$apcms['themesurl'].'/theme.css" type="text/css" />
 	<link rel="SHORTCUT ICON" href="'.$apcms['themesurl'].'/favicon.ico" />
 	
@@ -71,13 +74,16 @@ echo '	<link rel="stylesheet" href="'.$apcms['themesurl'].'/theme.css" type="tex
 			<td id="apcms_content" valign="top"><br />
 ';
 
+@ob_flush();
+
 if (isset($error) && trim($error) != "") {
 	echo "				<div id=\"error\">".$error."</div><br />\n";
 }
+
 if (isset($success) && trim($success) != "") {
 	echo "				<div id=\"success\">".$success."</div><br />\n";
 }
-
+@ob_flush();
 
 
 

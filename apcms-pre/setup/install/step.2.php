@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: step.2.php,v 1.6 2006/05/18 10:20:31 dma147 Exp $
+ * $Id: step.2.php,v 1.7 2006/05/18 11:15:59 dma147 Exp $
  */
 
 /*)\
@@ -30,15 +30,18 @@
 
 
 
+@ob_flush();
 if (!isset($_SESSION['lang'])) {
 	$_SESSION['lang'] = 'de';
 }
 include("./setup/lang/".$_SESSION['lang'].".lang.".$SUFFIX);
+@ob_flush();
 $sidebar = '';
 
 
 
 if (isset($_POST['step']) && intval($_POST['step']) == 2) {
+	@ob_flush();
 	
 	foreach($_POST['form'] AS $key => $val) {
 		$_SESSION['form'][$key] = $val;
@@ -65,15 +68,16 @@ if (isset($_POST['step']) && intval($_POST['step']) == 2) {
 		$redirect_time = 3;
 	
 	}
-	
+	@ob_flush();
 	
 	
 	include("./setup/header.".$SUFFIX);
-	
+	@ob_flush();
 	
 	if (!isset($error) || trim($error) == "") {
 		$sidebar = $apcms['LANGUAGE']['STEP2_HINT1'];
 		
+		@ob_flush();
 		echo "\n<div id=\"content1\">\n";
 		echo "	<table width=\"100%\" border=\"0\" cellspacing=\"1\" cellpadding=\"3\">\n";
 		echo "		<tr class=\"content2\">\n";
@@ -83,12 +87,13 @@ if (isset($_POST['step']) && intval($_POST['step']) == 2) {
 		echo "		</tr>\n";
 		echo "	</table>\n";
 		echo "</div><br />\n";
-		
+		@ob_flush();
 		
 		echo "\n<div id=\"content1\">\n";
 		echo "<form name=\"setupform\" action=\"".$_SERVER['PHP_SELF']."?setup[step]=3\" method=\"post\">\n";
 		echo "	<input type=\"hidden\" name=\"step\" value=\"3\" />\n";
 		echo "	<table width=\"100%\" border=\"0\" cellspacing=\"1\" cellpadding=\"3\">\n";
+		@ob_flush();
 		
 		echo "		<tr class=\"content2\">\n";
 		echo "			<td valign=\"top\">\n";
@@ -98,6 +103,7 @@ if (isset($_POST['step']) && intval($_POST['step']) == 2) {
 		echo "				<input id=\"admin_username\" type=\"text\" name=\"form[admin_username]\" value=\"".(isset($_SESSION['form']['admin_username'])&&trim($_SESSION['form']['admin_username'])!=""?$_SESSION['form']['admin_username']:'')."\" style=\"width:100%\" />\n";
 		echo "			</td>\n";
 		echo "		</tr>\n";
+		@ob_flush();
 		
 		echo "		<tr class=\"content2\">\n";
 		echo "			<td valign=\"top\">\n";
@@ -107,6 +113,7 @@ if (isset($_POST['step']) && intval($_POST['step']) == 2) {
 		echo "				<input id=\"admin_password\" type=\"password\" name=\"form[admin_password]\" value=\"".(isset($_SESSION['form']['admin_password'])&&trim($_SESSION['form']['admin_password'])!=""?$_SESSION['form']['admin_password']:'')."\" style=\"width:100%\" />\n";
 		echo "			</td>\n";
 		echo "		</tr>\n";
+		@ob_flush();
 		
 		echo "		<tr class=\"content2\">\n";
 		echo "			<td valign=\"top\">\n";
@@ -116,7 +123,7 @@ if (isset($_POST['step']) && intval($_POST['step']) == 2) {
 		echo "				<input id=\"admin_email\" type=\"text\" name=\"form[admin_email]\" value=\"".(isset($_SESSION['form']['admin_email'])&&trim($_SESSION['form']['admin_email'])!=""?$_SESSION['form']['admin_email']:'')."\" style=\"width:100%\" />\n";
 		echo "			</td>\n";
 		echo "		</tr>\n";
-		
+		@ob_flush();
 		
 		
 		echo "		<tr>\n";
@@ -126,18 +133,20 @@ if (isset($_POST['step']) && intval($_POST['step']) == 2) {
 								</label>
 							</td>\n";
 		echo "		</tr>\n";
-		
+		@ob_flush();
 		
 		echo "	</table>\n";
 		echo "</form>\n";
 		echo "</div><br />\n";
+		@ob_flush();
 		
 	}
 	
 	
 	include("./setup/footer.".$SUFFIX);
+	@ob_flush();
 }
 
 
-
+@ob_flush();
 ?>

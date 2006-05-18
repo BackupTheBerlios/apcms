@@ -22,13 +22,14 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: footer.php,v 1.1 2006/05/17 21:23:21 dma147 Exp $
+ * $Id: footer.php,v 1.2 2006/05/18 11:15:59 dma147 Exp $
  */
 
 /*)\
 \(*/
 
 
+@ob_flush();
 echo '			</td>
 			<td id="apcms_rightSideBar" valign="top"><span class="small_desc">'.$sidebar.'</span></td>
 		</tr>
@@ -41,5 +42,6 @@ echo '			</td>
 
 </body>
 </html>';
+@ob_flush();
 
 ?>
