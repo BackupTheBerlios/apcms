@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: step.3.php,v 1.4 2006/05/18 10:30:16 dma147 Exp $
+ * $Id: step.3.php,v 1.5 2006/05/18 10:48:44 dma147 Exp $
  */
 
 /*)\
@@ -120,6 +120,9 @@ if (isset($_POST['step']) && intval($_POST['step']) == 3) {
 		echo "			<td width=\"230\" align=\"right\" valign=\"top\">".(isset($_SESSION['form']['admin_email'])&&trim($_SESSION['form']['admin_email'])!=""?$_SESSION['form']['admin_email']:'')."</td>\n";
 		echo "		</tr>\n";
 		
+		echo "		<tr class=\"content2\">\n";
+		echo "			<td colspan=\"2\">".$apcms['LANGUAGE']['STEP3_FINAL_CHECK2']."</td>\n";
+		echo "		</tr>\n";
 		
 		
 		echo "		<tr>\n";

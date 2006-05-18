@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: de.lang.php,v 1.5 2006/05/18 10:30:16 dma147 Exp $
+ * $Id: de.lang.php,v 1.6 2006/05/18 10:48:44 dma147 Exp $
  */
 
 /*)\
@@ -78,6 +78,7 @@ $apcms['LANGUAGE']	=	array(
 	'STEP2_NO_EMAIL'				=>		'Du musst eine EMail f&uuml;r den Administrator eingeben!<br />Das m&uuml;ssen wir nochmal machen...',
 	
 	'STEP3_FINAL_CHECK'				=>		'Sehr gut. Es scheint als haben wir alle Daten zusammen, die wir f&uuml;r die Installation des APCMS ben&ouml;tigen.<br />Lass uns diese Daten noch einmal kurz gegenchecken:',
+	'STEP3_FINAL_CHECK2'			=>		'Sollte noch etwas falsch sein oder fehlen, so &auml;ndere diese jetzt. Du kannst jederzeit zur&uuml;ck gehen (auch mit dem Zur&uuml;ck-Button Deines Browser) um Daten zu &auml;ndern.',
 	
 	
 	
