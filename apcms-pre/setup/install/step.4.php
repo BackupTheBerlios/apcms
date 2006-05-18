@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: step.4.php,v 1.11 2006/05/18 12:27:49 dma147 Exp $
+ * $Id: step.4.php,v 1.12 2006/05/18 12:28:57 dma147 Exp $
  */
 
 /*)\
@@ -113,7 +113,7 @@ if (isset($_POST['step']) && intval($_POST['step']) == 4) {
 		usleep(100000);;
 		@ob_flush();
 		
-		echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$apcms['LANGUAGE']['DEF_CONNECTING_DB']." \"...<br />";
+		echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$apcms['LANGUAGE']['DEF_CONNECTING_DB']."...<br />";
 		@ob_flush();
 		include("./libs/database.func.".$SUFFIX);
 		@ob_flush();
@@ -140,7 +140,7 @@ if (isset($_POST['step']) && intval($_POST['step']) == 4) {
 		@ob_flush();
 		
 		$cpassword = apcms_CryptPasswd(trim($_SESSION['form']['admin_password']));
-		echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$apcms['LANGUAGE']['DEF_INSERTING_ADIMIN']." \"...<br />";
+		echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$apcms['LANGUAGE']['DEF_INSERTING_ADIMIN']."...<br />";
 		$INSERT = "INSERT INTO `apcms_1_global_users` (
 						`nickname`, 
 						`password`, 
