@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: global_config.php,v 1.2 2006/05/18 12:03:25 dma147 Exp $
+ * $Id: global_config.php,v 1.3 2006/05/18 12:13:01 dma147 Exp $
  */
 
 /*)\
@@ -38,6 +38,8 @@ echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$ap
 $query1 = "DROP TABLE IF EXISTS `".$table."`";
 $db->unbuffered_query($query1);
 @ob_flush();
+usleep(400);;
+@ob_flush();
 
 
 echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$apcms['LANGUAGE']['DEF_CREATE_TABLE']." \"".$table."\"...<br />";
@@ -52,12 +54,16 @@ $query2 = "CREATE TABLE IF NOT EXISTS `".$table."` (
 ) DEFAULT CHARSET=utf8";
 $db->unbuffered_query($query2);
 @ob_flush();
+usleep(400);;
+@ob_flush();
 
 
 echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$apcms['LANGUAGE']['DEF_INSERT_DATA']." \"".$table."\"...<br />";
 @ob_flush();
 $query3 = "INSERT INTO `".$table."` (`title`, `subtitle`, `description`, `sesslifetime`, `emailfrom`, `emailadress`) VALUES ('My Page', 'My personal page', 'This is my personal page which I\'ve created to be online.', 3600, 'My Page', 'email@example.com')";
 $db->unbuffered_query($query3);
+@ob_flush();
+usleep(400);;
 @ob_flush();
 
 

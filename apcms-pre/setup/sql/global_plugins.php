@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: global_plugins.php,v 1.2 2006/05/18 12:13:01 dma147 Exp $
+ * $Id: global_plugins.php,v 1.3 2006/05/18 12:15:14 dma147 Exp $
  */
 
 /*)\
@@ -38,7 +38,7 @@ echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$ap
 $query1 = "DROP TABLE IF EXISTS `".$table."`";
 $db->unbuffered_query($query1);
 @ob_flush();
-usleep(400);;
+usleep(5000);;
 @ob_flush();
 
 
@@ -57,7 +57,7 @@ $query2 = "CREATE TABLE IF NOT EXISTS `".$table."` (
 ) CHARSET=utf8 AUTO_INCREMENT=4";
 $db->unbuffered_query($query2);
 @ob_flush();
-usleep(400);;
+usleep(5000);;
 @ob_flush();
 
 
@@ -68,7 +68,7 @@ $query3 = "INSERT INTO `".$table."` (`id`, `name`, `md5`, `active`, `config`, `v
 (3, 'apcms_sidebar_adminbox', 'bf97756d30018c1db492f59a07a42870', 1, 'a:0:{}', '0.0.1')";
 $db->unbuffered_query($query3);
 @ob_flush();
-usleep(400);;
+usleep(5000);;
 @ob_flush();
 
 
