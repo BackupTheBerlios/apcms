@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: step.1.php,v 1.4 2006/05/18 09:28:52 dma147 Exp $
+ * $Id: step.1.php,v 1.5 2006/05/18 10:11:45 dma147 Exp $
  */
 
 /*)\
@@ -77,7 +77,7 @@ echo "			<td valign=\"top\">\n";
 echo "				<label for=\"password\" accesskey=\"p\" tabindex=\"3\">".$apcms['LANGUAGE']['STEP1_PASSWORD']."</label>\n";
 echo "			</td>\n";
 echo "			<td width=\"230\" align=\"right\" valign=\"top\">\n";
-echo "				<input id=\"password\" type=\"password\" name=\"form[password]\" value=\"\" style=\"width:100%\" />\n";
+echo "				<input id=\"password\" type=\"password\" name=\"form[password]\" value=\"".(isset($_SESSION['form']['password'])&&trim($_SESSION['form']['password'])!=""?$_SESSION['form']['password']:'')."\" style=\"width:100%\" />\n";
 echo "			</td>\n";
 echo "		</tr>\n";
 
@@ -92,7 +92,7 @@ echo "		</tr>\n";
 
 echo "		<tr class=\"content2\">\n";
 echo "			<td valign=\"top\">\n";
-echo "				<label for=\"prefix\" accesskey=\"h\" tabindex=\"1\">".$apcms['LANGUAGE']['STEP1_PREFIX']."</label>\n";
+echo "				<label for=\"prefix\" accesskey=\"p\" tabindex=\"5\">".$apcms['LANGUAGE']['STEP1_PREFIX']."</label>\n";
 echo "			</td>\n";
 echo "			<td width=\"230\" align=\"right\" valign=\"top\">\n";
 echo "				<input id=\"prefix\" type=\"text\" name=\"form[prefix]\" value=\"".(isset($_SESSION['form']['prefix'])&&trim($_SESSION['form']['prefix'])!=""?$_SESSION['form']['prefix']:'apcms_1_')."\" style=\"width:100%\" />\n";

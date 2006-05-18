@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: de.lang.php,v 1.2 2006/05/18 09:23:44 dma147 Exp $
+ * $Id: de.lang.php,v 1.3 2006/05/18 10:11:45 dma147 Exp $
  */
 
 /*)\
@@ -63,15 +63,16 @@ $apcms['LANGUAGE']	=	array(
 	'STEP1_PASSWORD'				=>		'Passwort des MySQL-Users',
 	'STEP1_DATABASE'				=>		'Datenbank (muss existieren)',
 	'STEP1_PREFIX'					=>		'Tabellen-Prefix',
-	
 	'STEP1_NO_HOSTNAME'				=>		'Keinen Hostnamen angegeben! Bitte gib einen Hostnamen an. In der Regel sollte diese &quot;localhost&quot; sein.<br />Das m&uuml;ssen wir nochmal machen...',
 	'STEP1_NO_USERNAME'				=>		'Keinen Usernamen angegeben! Bitte gib einen Usernamen an.<br />Das m&uuml;ssen wir nochmal machen...',
 	'STEP1_NO_PASSWORD'				=>		'Kein Passwort angegeben! Bitte gib ein Passwort an.<br />Das m&uuml;ssen wir nochmal machen...',
 	'STEP1_NO_DATABASE'				=>		'Keine Datenbank angegeben! Bitte gib eine Datenbank an, die aber schon existieren muss.<br />Das m&uuml;ssen wir nochmal machen...',
 	
-	
-	
-	
+	'STEP2_DESCRIPTION'				=>		'Hier erstellst Du Dir selbst einen Administrator der dann dazu berechtigt ist, alle Einstellungen im Admincenter vorzunehmen und Plugins zu installieren, konfigurieren oder zu l&ouml;schen.',
+	'STEP2_HINT1'					=>		'<b>Administrator</b><br />Der Administrator eines Systems ist ein normaler User, mit besonderen Rechten. In der Regel ist der Administrator auch der Initiator eines Projekts, der dann sogenannte Moderatoren um sich schart, die die Kommunikation mit den Usern &uuml;bernehmen.',
+	'STEP2_ADMIN_USERNAME'			=>		'Username des Admins',
+	'STEP2_ADMIN_PASSWORD'			=>		'Passwort des Admins',
+	'STEP2_ADMIN_EMAIL'				=>		'EMail des Admins',
 	
 	
 	
