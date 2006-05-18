@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: step.1.php,v 1.2 2006/05/18 09:06:16 dma147 Exp $
+ * $Id: step.1.php,v 1.3 2006/05/18 09:28:12 dma147 Exp $
  */
 
 /*)\
@@ -59,7 +59,7 @@ echo "			<td valign=\"top\">\n";
 echo "				<label for=\"hostname\" accesskey=\"h\" tabindex=\"1\">".$apcms['LANGUAGE']['STEP1_HOSTNAME']."</label>\n";
 echo "			</td>\n";
 echo "			<td width=\"230\" align=\"right\" valign=\"top\">\n";
-echo "				<input id=\"hostname\" type=\"text\" name=\"form[hostname]\" value=\"localhost\" style=\"width:100%\" />\n";
+echo "				<input id=\"hostname\" type=\"text\" name=\"form[hostname]\" value=\"".(isset($_SESSION['form']['hostname'])&&trim($_SESSION['form']['hostname'])!=""?$_SESSION['form']['hostname']:'localhost')."\" style=\"width:100%\" />\n";
 echo "			</td>\n";
 echo "		</tr>\n";
 
@@ -68,7 +68,7 @@ echo "			<td valign=\"top\">\n";
 echo "				<label for=\"username\" accesskey=\"u\" tabindex=\"2\">".$apcms['LANGUAGE']['STEP1_USERNAME']."</label>\n";
 echo "			</td>\n";
 echo "			<td width=\"230\" align=\"right\" valign=\"top\">\n";
-echo "				<input id=\"username\" type=\"text\" name=\"form[username]\" value=\"\" style=\"width:100%\" />\n";
+echo "				<input id=\"username\" type=\"text\" name=\"form[username]\" value=\"".(isset($_SESSION['form']['username'])&&trim($_SESSION['form']['username'])!=""?$_SESSION['form']['username']:'localhost')."\" style=\"width:100%\" />\n";
 echo "			</td>\n";
 echo "		</tr>\n";
 
@@ -86,7 +86,7 @@ echo "			<td valign=\"top\">\n";
 echo "				<label for=\"database\" accesskey=\"d\" tabindex=\"4\">".$apcms['LANGUAGE']['STEP1_DATABASE']."</label>\n";
 echo "			</td>\n";
 echo "			<td width=\"230\" align=\"right\" valign=\"top\">\n";
-echo "				<input id=\"database\" type=\"text\" name=\"form[database]\" value=\"apcms\" style=\"width:100%\" />\n";
+echo "				<input id=\"database\" type=\"text\" name=\"form[database]\" value=\"".(isset($_SESSION['form']['database'])&&trim($_SESSION['form']['database'])!=""?$_SESSION['form']['database']:'apcms')."\" style=\"width:100%\" />\n";
 echo "			</td>\n";
 echo "		</tr>\n";
 
@@ -95,7 +95,7 @@ echo "			<td valign=\"top\">\n";
 echo "				<label for=\"prefix\" accesskey=\"h\" tabindex=\"1\">".$apcms['LANGUAGE']['STEP1_PREFIX']."</label>\n";
 echo "			</td>\n";
 echo "			<td width=\"230\" align=\"right\" valign=\"top\">\n";
-echo "				<input id=\"prefix\" type=\"text\" name=\"form[prefix]\" value=\"apcms_1_\" style=\"width:100%\" />\n";
+echo "				<input id=\"prefix\" type=\"text\" name=\"form[prefix]\" value=\"".(isset($_SESSION['form']['prefix'])&&trim($_SESSION['form']['prefix'])!=""?$_SESSION['form']['prefix']:'apcms_1_')."\" style=\"width:100%\" />\n";
 echo "			</td>\n";
 echo "		</tr>\n";
 

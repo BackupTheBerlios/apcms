@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: step.2.php,v 1.3 2006/05/18 09:19:22 dma147 Exp $
+ * $Id: step.2.php,v 1.4 2006/05/18 09:28:12 dma147 Exp $
  */
 
 /*)\
@@ -45,7 +45,7 @@ if (isset($_POST['step']) && intval($_POST['step']) == 2) {
 			$_SESSION['form'][$key] = $val;
 		}
 		$error = $apcms['LANGUAGE']['STEP1_NO_HOSTNAME'];
-		$redirect_url = '';
+		$redirect_url = $apcms['baseURL'].'apcms_installer.'.$SUFFIX.'?setup[step]=1';
 		$redirect_time = 3;
 	
 	} elseif (!isset($_POST['form']['username']) || trim($_POST['form']['username']) == "") {
@@ -53,7 +53,7 @@ if (isset($_POST['step']) && intval($_POST['step']) == 2) {
 			$_SESSION['form'][$key] = $val;
 		}
 		$error = $apcms['LANGUAGE']['STEP1_NO_USERNAME'];
-		$redirect_url = '';
+		$redirect_url = $apcms['baseURL'].'apcms_installer.'.$SUFFIX.'?setup[step]=1';
 		$redirect_time = 3;
 	
 	} elseif (!isset($_POST['form']['password']) || trim($_POST['form']['password']) == "") {
@@ -61,7 +61,7 @@ if (isset($_POST['step']) && intval($_POST['step']) == 2) {
 			$_SESSION['form'][$key] = $val;
 		}
 		$error = $apcms['LANGUAGE']['STEP1_NO_PASSWORD'];
-		$redirect_url = '';
+		$redirect_url = $apcms['baseURL'].'apcms_installer.'.$SUFFIX.'?setup[step]=1';
 		$redirect_time = 3;
 	
 	} elseif (!isset($_POST['form']['database']) || trim($_POST['form']['database']) == "") {
@@ -69,7 +69,7 @@ if (isset($_POST['step']) && intval($_POST['step']) == 2) {
 			$_SESSION['form'][$key] = $val;
 		}
 		$error = $apcms['LANGUAGE']['STEP1_NO_DATABASE'];
-		$redirect_url = '';
+		$redirect_url = $apcms['baseURL'].'apcms_installer.'.$SUFFIX.'?setup[step]=1';
 		$redirect_time = 3;
 	
 	}
