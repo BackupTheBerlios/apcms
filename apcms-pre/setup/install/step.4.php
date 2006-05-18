@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: step.4.php,v 1.10 2006/05/18 12:20:31 dma147 Exp $
+ * $Id: step.4.php,v 1.11 2006/05/18 12:27:49 dma147 Exp $
  */
 
 /*)\
@@ -114,6 +114,7 @@ if (isset($_POST['step']) && intval($_POST['step']) == 4) {
 		@ob_flush();
 		
 		echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$apcms['LANGUAGE']['DEF_CONNECTING_DB']." \"...<br />";
+		@ob_flush();
 		include("./libs/database.func.".$SUFFIX);
 		@ob_flush();
 		
@@ -138,8 +139,35 @@ if (isset($_POST['step']) && intval($_POST['step']) == 4) {
 		usleep(100000);;
 		@ob_flush();
 		
-		
-		
+		$cpassword = apcms_CryptPasswd(trim($_SESSION['form']['admin_password']));
+		echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$apcms['LANGUAGE']['DEF_INSERTING_ADIMIN']." \"...<br />";
+		$INSERT = "INSERT INTO `apcms_1_global_users` (
+						`nickname`, 
+						`password`, 
+						`email`, 
+						`groups`, 
+						`theme`, 
+						`language`, 
+						`active`, 
+						`actkey`, 
+						`regdate`, 
+						`last_login`
+			) VALUES (
+						'".apcms_ESC(apcms_Strip($_SESSION['form']['admin_username']))."', 
+						'".$cpassword."', 
+						'".apcms_ESC(apcms_Strip($_SESSION['form']['admin_email']))."', 
+						'a:1:{i:0;i:1;}', 
+						'default', 
+						'".$_SESSION['lang']."', 
+						1, 
+						'', 
+						'".time()."', 
+						0
+			)";
+		$db->unbuffered_query($INSERT);
+		@ob_flush();
+		usleep(100000);;
+		@ob_flush();
 		
 		
 		

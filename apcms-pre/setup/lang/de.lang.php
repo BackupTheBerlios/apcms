@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: de.lang.php,v 1.8 2006/05/18 12:03:25 dma147 Exp $
+ * $Id: de.lang.php,v 1.9 2006/05/18 12:27:49 dma147 Exp $
  */
 
 /*)\
@@ -89,7 +89,7 @@ $apcms['LANGUAGE']	=	array(
 	'DEF_DROP_TABLE'				=>		'L&ouml;sche Tabelle',
 	'DEF_CREATE_TABLE'				=>		'Erstelle Tabelle',
 	'DEF_INSERT_DATA'				=>		'Schreibe Daten in Tabelle',
-	
+	'DEF_INSERTING_ADIMIN'			=>		'Schreibe Admindaten in Usertabelle',
 	
 	
 	
