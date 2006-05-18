@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: step.4.php,v 1.5 2006/05/18 12:03:25 dma147 Exp $
+ * $Id: step.4.php,v 1.6 2006/05/18 12:09:34 dma147 Exp $
  */
 
 /*)\
@@ -109,16 +109,24 @@ if (isset($_POST['step']) && intval($_POST['step']) == 4) {
 		}
         $prefix = $MYSQLDATA['PREFIX'].$ptrenner.$MYSQLDATA['UNIQUE'].$ptrenner;
 		
+		@ob_flush();
+		sleep(1);
+		@ob_flush();
 		
 		echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$apcms['LANGUAGE']['DEF_CONNECTING_DB']." \"...<br />";
-		@ob_flush();
 		include("./libs/database.func.".$SUFFIX);
 		@ob_flush();
 		
+		@ob_flush();
+		sleep(1);
+		@ob_flush();
 		$fdir = opendir("./setup/sql");
 		while ($sql = readdir($fdir)) {
 			if (is_file("./setup/sql/".$sql)) {
 				include("./setup/sql/".$sql);
+				@ob_flush();
+				sleep(1);
+				@ob_flush();
 				@ob_flush();
 			}
 			@ob_flush();
@@ -126,6 +134,9 @@ if (isset($_POST['step']) && intval($_POST['step']) == 4) {
 		closedir($fdir);
 		@ob_flush();
 		
+		@ob_flush();
+		sleep(1);
+		@ob_flush();
 		
 		
 		
