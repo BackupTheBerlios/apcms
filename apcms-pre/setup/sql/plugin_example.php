@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: plugin_example.php,v 1.3 2006/05/18 12:18:52 dma147 Exp $
+ * $Id: plugin_example.php,v 1.4 2006/05/18 12:20:31 dma147 Exp $
  */
 
 /*)\
@@ -38,7 +38,7 @@ echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$ap
 $query1 = "DROP TABLE IF EXISTS `".$table."`";
 $db->unbuffered_query($query1);
 @ob_flush();
-usleep(50000);;
+usleep(100000);;
 @ob_flush();
 
 
@@ -52,7 +52,7 @@ $query2 = "CREATE TABLE IF NOT EXISTS `".$table."` (
 ) DEFAULT CHARSET=utf8 AUTO_INCREMENT=1";
 $db->unbuffered_query($query2);
 @ob_flush();
-usleep(50000);;
+usleep(100000);;
 @ob_flush();
 
 
