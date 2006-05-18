@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: step.1.php,v 1.3 2006/05/18 09:28:12 dma147 Exp $
+ * $Id: step.1.php,v 1.4 2006/05/18 09:28:52 dma147 Exp $
  */
 
 /*)\
@@ -68,7 +68,7 @@ echo "			<td valign=\"top\">\n";
 echo "				<label for=\"username\" accesskey=\"u\" tabindex=\"2\">".$apcms['LANGUAGE']['STEP1_USERNAME']."</label>\n";
 echo "			</td>\n";
 echo "			<td width=\"230\" align=\"right\" valign=\"top\">\n";
-echo "				<input id=\"username\" type=\"text\" name=\"form[username]\" value=\"".(isset($_SESSION['form']['username'])&&trim($_SESSION['form']['username'])!=""?$_SESSION['form']['username']:'localhost')."\" style=\"width:100%\" />\n";
+echo "				<input id=\"username\" type=\"text\" name=\"form[username]\" value=\"".(isset($_SESSION['form']['username'])&&trim($_SESSION['form']['username'])!=""?$_SESSION['form']['username']:'')."\" style=\"width:100%\" />\n";
 echo "			</td>\n";
 echo "		</tr>\n";
 
