@@ -21,7 +21,7 @@
  * @access public
  * @package apcms
  * 
- * $Id: config.inc.php,v 1.3 2006/05/17 21:21:44 dma147 Exp $
+ * $Id: config.inc.php,v 1.4 2006/05/18 09:49:20 dma147 Exp $
  */
 
 /*)\
@@ -306,47 +306,49 @@ if (defined('IS_installed')) {
 }
 
 $userid = 0;
-if (isset($apcms['COOKIE']['userid']) && intval($apcms['COOKIE']['userid']) >= 1) {
-	$_SESSION['isloggedin'] = true;
-	if (!isset($_SESSION['userid']) || intval($_SESSION['userid']) <= 0) {
-		
-		
-		$cpassword = trim($apcms['COOKIE']['password']);
-		$seluser = $db->unbuffered_query_first("SELECT * FROM `".$apcms['table']['global']['users']."` WHERE `id`='".intval($apcms['COOKIE']['userid'])."' AND `nickname`='".apcms_ESC($apcms['COOKIE']['nickname'])."' AND `password`='".apcms_ESC($cpassword)."'");
-		if (isset($seluser[0]) && intval($seluser[0]) >= 1) {
+if (defined('IS_installed')) {
+	if (isset($apcms['COOKIE']['userid']) && intval($apcms['COOKIE']['userid']) >= 1) {
+		$_SESSION['isloggedin'] = true;
+		if (!isset($_SESSION['userid']) || intval($_SESSION['userid']) <= 0) {
 			
-			$userid = intval($seluser[0]);
-			$nickname = stripslashes(trim($seluser[1]));
-			$apcms['user']['id'] = $userid;
-			$apcms['user']['nickname'] = $nickname;
-			$apcms['user']['password'] = stripslashes(trim($seluser[2]));
-			$apcms['user']['email'] = stripslashes(trim($seluser[3]));
-			$apcms['user']['groups'] = unserialize(stripslashes(trim($seluser[4])));
-			$apcms['user']['theme'] = stripslashes(trim($seluser[5]));
-			$apcms['user']['language'] = stripslashes(trim($seluser[6]));
 			
-			$_SESSION['isloggedin'] = true;
-			$_SESSION['userid'] = $userid;
-			$_SESSION['nickname'] = $nickname;
-			$_SESSION['email'] = $apcms['user']['email'];
-			$_SESSION['groups'] = $apcms['user']['groups'];
-			$_SESSION['theme'] = $apcms['user']['theme'];
-			$_SESSION['language'] = $apcms['user']['language'];
+			$cpassword = trim($apcms['COOKIE']['password']);
+			$seluser = $db->unbuffered_query_first("SELECT * FROM `".$apcms['table']['global']['users']."` WHERE `id`='".intval($apcms['COOKIE']['userid'])."' AND `nickname`='".apcms_ESC($apcms['COOKIE']['nickname'])."' AND `password`='".apcms_ESC($cpassword)."'");
+			if (isset($seluser[0]) && intval($seluser[0]) >= 1) {
+				
+				$userid = intval($seluser[0]);
+				$nickname = stripslashes(trim($seluser[1]));
+				$apcms['user']['id'] = $userid;
+				$apcms['user']['nickname'] = $nickname;
+				$apcms['user']['password'] = stripslashes(trim($seluser[2]));
+				$apcms['user']['email'] = stripslashes(trim($seluser[3]));
+				$apcms['user']['groups'] = unserialize(stripslashes(trim($seluser[4])));
+				$apcms['user']['theme'] = stripslashes(trim($seluser[5]));
+				$apcms['user']['language'] = stripslashes(trim($seluser[6]));
+				
+				$_SESSION['isloggedin'] = true;
+				$_SESSION['userid'] = $userid;
+				$_SESSION['nickname'] = $nickname;
+				$_SESSION['email'] = $apcms['user']['email'];
+				$_SESSION['groups'] = $apcms['user']['groups'];
+				$_SESSION['theme'] = $apcms['user']['theme'];
+				$_SESSION['language'] = $apcms['user']['language'];
+				
+			}
+			
+			
 			
 		}
-		
-		
-		
+	} else {
+		unset($apcms['user']);
+		session_unset();
+		setcookie("apcms[userid]", "", time()-999);
+		setcookie("apcms[nickname]", "", time()-999);
+		$_SESSION['name'] = session_name();
+		$_SESSION['id'] = session_id();
+		$_SESSION['sid'] = $_SESSION['name']."=".$_SESSION['id'];
+		$_SESSION['isloggedin'] = false;
 	}
-} else {
-	unset($apcms['user']);
-	session_unset();
-	setcookie("apcms[userid]", "", time()-999);
-	setcookie("apcms[nickname]", "", time()-999);
-	$_SESSION['name'] = session_name();
-	$_SESSION['id'] = session_id();
-	$_SESSION['sid'] = $_SESSION['name']."=".$_SESSION['id'];
-	$_SESSION['isloggedin'] = false;
 }
 
 if (!isset($_SESSION['isloggedin']) || $_SESSION['isloggedin'] === false) {
