@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: global_plugins.php,v 1.1 2006/05/18 12:03:44 dma147 Exp $
+ * $Id: global_plugins.php,v 1.2 2006/05/18 12:13:01 dma147 Exp $
  */
 
 /*)\
@@ -37,6 +37,8 @@ echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$ap
 @ob_flush();
 $query1 = "DROP TABLE IF EXISTS `".$table."`";
 $db->unbuffered_query($query1);
+@ob_flush();
+usleep(400);;
 @ob_flush();
 
 
@@ -55,6 +57,8 @@ $query2 = "CREATE TABLE IF NOT EXISTS `".$table."` (
 ) CHARSET=utf8 AUTO_INCREMENT=4";
 $db->unbuffered_query($query2);
 @ob_flush();
+usleep(400);;
+@ob_flush();
 
 
 echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$apcms['LANGUAGE']['DEF_INSERT_DATA']." \"".$table."\"...<br />";
@@ -63,6 +67,8 @@ $query3 = "INSERT INTO `".$table."` (`id`, `name`, `md5`, `active`, `config`, `v
 (2, 'apcms_sidebar_poweredby', 'd2c8e21b62e8f2bb098830ccd4f70c5b', 1, 'a:0:{}', '0.0.2'),
 (3, 'apcms_sidebar_adminbox', 'bf97756d30018c1db492f59a07a42870', 1, 'a:0:{}', '0.0.1')";
 $db->unbuffered_query($query3);
+@ob_flush();
+usleep(400);;
 @ob_flush();
 
 

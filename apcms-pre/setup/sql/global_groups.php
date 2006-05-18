@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: global_groups.php,v 1.1 2006/05/18 12:03:44 dma147 Exp $
+ * $Id: global_groups.php,v 1.2 2006/05/18 12:13:01 dma147 Exp $
  */
 
 /*)\
@@ -38,6 +38,8 @@ echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$ap
 $query1 = "DROP TABLE IF EXISTS `".$table."`";
 $db->unbuffered_query($query1);
 @ob_flush();
+usleep(400);;
+@ob_flush();
 
 
 echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$apcms['LANGUAGE']['DEF_CREATE_TABLE']." \"".$table."\"...<br />";
@@ -50,6 +52,8 @@ $query2 = "CREATE TABLE IF NOT EXISTS `".$table."` (
 ) DEFAULT CHARSET=utf8 AUTO_INCREMENT=4";
 $db->unbuffered_query($query2);
 @ob_flush();
+usleep(400);;
+@ob_flush();
 
 
 echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$apcms['LANGUAGE']['DEF_INSERT_DATA']." \"".$table."\"...<br />";
@@ -58,6 +62,8 @@ $query3 = "INSERT INTO `".$table."` (`id`, `name`, `desc`) VALUES (1, 'Administr
 (2, 'Guests', 'The group for all unregistered and not logged in users'),
 (3, 'Members', 'The group for all normal registered and logged in users')";
 $db->unbuffered_query($query3);
+@ob_flush();
+usleep(400);;
 @ob_flush();
 
 
