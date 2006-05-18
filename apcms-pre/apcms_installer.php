@@ -21,7 +21,7 @@
  * @access public
  * @package apcms
  * 
- * $Id: apcms_installer.php,v 1.4 2006/05/18 09:06:16 dma147 Exp $
+ * $Id: apcms_installer.php,v 1.5 2006/05/18 09:45:54 dma147 Exp $
  */
 
 /*)\
@@ -90,5 +90,22 @@ if (!defined('IS_installed')) {
 } else {
 	header("Location: ./index.php");
 }
+
+
+$DEBUGOUT .= "<br />\n<br />\n<br />\n\n<pre>";
+ob_start();
+print_r($apcms);
+$debug_apcms = ob_get_contents();
+ob_end_clean();
+ob_start();
+print_r($_SESSION);
+$debug_session = ob_get_contents();
+ob_end_clean();
+$DEBUGOUT .= "<strong>\$_SESSION:</strong>\n".$debug_session;
+$DEBUGOUT .= "\n\n<strong>\$apcms:</strong>\n".$debug_apcms;
+$DEBUGOUT .= "</pre>";
+echo $DEBUGOUT;
+
+
 
 ?>
