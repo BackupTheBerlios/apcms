@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: de.lang.php,v 1.1 2006/05/17 21:23:21 dma147 Exp $
+ * $Id: de.lang.php,v 1.2 2006/05/18 09:23:44 dma147 Exp $
  */
 
 /*)\
@@ -64,7 +64,10 @@ $apcms['LANGUAGE']	=	array(
 	'STEP1_DATABASE'				=>		'Datenbank (muss existieren)',
 	'STEP1_PREFIX'					=>		'Tabellen-Prefix',
 	
-	
+	'STEP1_NO_HOSTNAME'				=>		'Keinen Hostnamen angegeben! Bitte gib einen Hostnamen an. In der Regel sollte diese &quot;localhost&quot; sein.<br />Das m&uuml;ssen wir nochmal machen...',
+	'STEP1_NO_USERNAME'				=>		'Keinen Usernamen angegeben! Bitte gib einen Usernamen an.<br />Das m&uuml;ssen wir nochmal machen...',
+	'STEP1_NO_PASSWORD'				=>		'Kein Passwort angegeben! Bitte gib ein Passwort an.<br />Das m&uuml;ssen wir nochmal machen...',
+	'STEP1_NO_DATABASE'				=>		'Keine Datenbank angegeben! Bitte gib eine Datenbank an, die aber schon existieren muss.<br />Das m&uuml;ssen wir nochmal machen...',
 	
 	
 	
