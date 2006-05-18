@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: step.1.php,v 1.6 2006/05/18 11:15:59 dma147 Exp $
+ * $Id: step.1.php,v 1.7 2006/05/18 12:03:25 dma147 Exp $
  */
 
 /*)\
@@ -104,15 +104,26 @@ echo "			<td valign=\"top\">\n";
 echo "				<label for=\"prefix\" accesskey=\"p\" tabindex=\"5\">".$apcms['LANGUAGE']['STEP1_PREFIX']."</label>\n";
 echo "			</td>\n";
 echo "			<td width=\"230\" align=\"right\" valign=\"top\">\n";
-echo "				<input id=\"prefix\" type=\"text\" name=\"form[prefix]\" value=\"".(isset($_SESSION['form']['prefix'])&&trim($_SESSION['form']['prefix'])!=""?$_SESSION['form']['prefix']:'apcms_1_')."\" style=\"width:100%\" />\n";
+echo "				<input id=\"prefix\" type=\"text\" name=\"form[prefix]\" value=\"".(isset($_SESSION['form']['prefix'])&&trim($_SESSION['form']['prefix'])!=""?$_SESSION['form']['prefix']:'apcms')."\" style=\"width:100%\" />\n";
+echo "			</td>\n";
+echo "		</tr>\n";
+@ob_flush();
+
+echo "		<tr class=\"content2\">\n";
+echo "			<td valign=\"top\">\n";
+echo "				<label for=\"unique\" accesskey=\"k\" tabindex=\"6\">".$apcms['LANGUAGE']['STEP1_UNIQUE']."</label>\n";
+echo "			</td>\n";
+echo "			<td width=\"230\" align=\"right\" valign=\"top\">\n";
+echo "				<input id=\"unique\" type=\"text\" name=\"form[unique]\" value=\"".(isset($_SESSION['form']['unique'])&&trim($_SESSION['form']['unique'])!=""?$_SESSION['form']['unique']:'1')."\" style=\"width:100%\" />\n";
 echo "			</td>\n";
 echo "		</tr>\n";
 @ob_flush();
 
 
+
 echo "		<tr>\n";
 echo "			<td colspan=\"2\" align=\"center\">
-						<label for=\"submit\" accesskey=\"s\" tabindex=\"6\">
+						<label for=\"submit\" accesskey=\"s\" tabindex=\"7\">
 							<input id=\"submit\" type=\"submit\" name=\"submit\" value=\"".$apcms['LANGUAGE']['CONTINUE']."\" />
 						</label>
 					</td>\n";

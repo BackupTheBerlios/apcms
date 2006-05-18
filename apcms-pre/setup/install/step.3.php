@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: step.3.php,v 1.6 2006/05/18 11:15:59 dma147 Exp $
+ * $Id: step.3.php,v 1.7 2006/05/18 12:03:25 dma147 Exp $
  */
 
 /*)\
@@ -106,7 +106,13 @@ if (isset($_POST['step']) && intval($_POST['step']) == 3) {
 		
 		echo "		<tr class=\"content2\">\n";
 		echo "			<td valign=\"top\"><b>".$apcms['LANGUAGE']['STEP1_PREFIX']."</b></td>\n";
-		echo "			<td width=\"230\" align=\"right\" valign=\"top\">".(isset($_SESSION['form']['prefix'])&&trim($_SESSION['form']['prefix'])!=""?$_SESSION['form']['prefix']:'apcms_1_')."</td>\n";
+		echo "			<td width=\"230\" align=\"right\" valign=\"top\">".(isset($_SESSION['form']['prefix'])&&trim($_SESSION['form']['prefix'])!=""?$_SESSION['form']['prefix']:'apcms')."</td>\n";
+		echo "		</tr>\n";
+		@ob_flush();
+		
+		echo "		<tr class=\"content2\">\n";
+		echo "			<td valign=\"top\"><b>".$apcms['LANGUAGE']['STEP1_UNIQUE']."</b></td>\n";
+		echo "			<td width=\"230\" align=\"right\" valign=\"top\">".(isset($_SESSION['form']['unique'])&&trim($_SESSION['form']['unique'])!=""?$_SESSION['form']['unique']:'1')."</td>\n";
 		echo "		</tr>\n";
 		@ob_flush();
 		

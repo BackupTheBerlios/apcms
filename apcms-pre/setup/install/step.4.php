@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: step.4.php,v 1.4 2006/05/18 11:15:59 dma147 Exp $
+ * $Id: step.4.php,v 1.5 2006/05/18 12:03:25 dma147 Exp $
  */
 
 /*)\
@@ -80,6 +80,12 @@ if (isset($_POST['step']) && intval($_POST['step']) == 4) {
 	}
 	@ob_flush();
 	
+	if (!isset($_SESSION['form']['prefix']) || trim($_SESSION['form']['prefix']) == "") {
+		$_SESSION['form']['prefix'] = 'apcms';
+	}
+	if (!isset($_SESSION['form']['uniue']) || trim($_SESSION['form']['uniue']) == "") {
+		$_SESSION['form']['uniue'] = 1;
+	}
 	
 	include("./setup/header.".$SUFFIX);
 	@ob_flush();
@@ -89,6 +95,36 @@ if (isset($_POST['step']) && intval($_POST['step']) == 4) {
 		echo "<b>".$apcms['LANGUAGE']['STEP4_STARTING_INSTALLATION']."</b><br />\n<br />\n";
 		@ob_flush();
 		
+		
+        $MYSQLDATA['HOST']      =       trim($_SESSION['form']['hostname']);
+        $MYSQLDATA['USER']      =       trim($_SESSION['form']['username']);
+        $MYSQLDATA['PASSWD']    =       trim($_SESSION['form']['password']);
+        $MYSQLDATA['DB']        =       trim($_SESSION['form']['database']);
+        $MYSQLDATA['PREFIX']    =       trim($_SESSION['form']['prefix']);
+        $MYSQLDATA['UNIQUE']    =       intval(trim($_SESSION['form']['uniue']));
+		if ((isset($MYSQLDATA['PREFIX']) && trim($MYSQLDATA['PREFIX']) != "") || (isset($MYSQLDATA['UNIQUE']) && trim($MYSQLDATA['UNIQUE']) != "")) {
+			$ptrenner = "_";
+		} else {
+			$ptrenner = "";
+		}
+        $prefix = $MYSQLDATA['PREFIX'].$ptrenner.$MYSQLDATA['UNIQUE'].$ptrenner;
+		
+		
+		echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$apcms['LANGUAGE']['DEF_CONNECTING_DB']." \"...<br />";
+		@ob_flush();
+		include("./libs/database.func.".$SUFFIX);
+		@ob_flush();
+		
+		$fdir = opendir("./setup/sql");
+		while ($sql = readdir($fdir)) {
+			if (is_file("./setup/sql/".$sql)) {
+				include("./setup/sql/".$sql);
+				@ob_flush();
+			}
+			@ob_flush();
+		}
+		closedir($fdir);
+		@ob_flush();
 		
 		
 		

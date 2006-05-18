@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: de.lang.php,v 1.7 2006/05/18 11:15:59 dma147 Exp $
+ * $Id: de.lang.php,v 1.8 2006/05/18 12:03:25 dma147 Exp $
  */
 
 /*)\
@@ -65,6 +65,7 @@ $apcms['LANGUAGE']	=	array(
 	'STEP1_PASSWORD'				=>		'Passwort des MySQL-Users',
 	'STEP1_DATABASE'				=>		'Datenbank (muss existieren)',
 	'STEP1_PREFIX'					=>		'Tabellen-Prefix',
+	'STEP1_UNIQUE'					=>		'Eindeutige Kennziffer f&uuml;r die Tabellen',
 	'STEP1_NO_HOSTNAME'				=>		'Keinen Hostnamen angegeben! Bitte gib einen Hostnamen an. In der Regel sollte diese &quot;localhost&quot; sein.<br />Das m&uuml;ssen wir nochmal machen...',
 	'STEP1_NO_USERNAME'				=>		'Keinen Usernamen angegeben! Bitte gib einen Usernamen an.<br />Das m&uuml;ssen wir nochmal machen...',
 	'STEP1_NO_PASSWORD'				=>		'Kein Passwort angegeben! Bitte gib ein Passwort an.<br />Das m&uuml;ssen wir nochmal machen...',
@@ -84,9 +85,10 @@ $apcms['LANGUAGE']	=	array(
 	
 	'STEP4_STARTING_INSTALLATION'	=>		'Starte Installation...',
 	
-	
-	
-	
+	'DEF_CONNECTING_DB'				=>		'Stelle Verbindung zur MySQL-Datenbank her',
+	'DEF_DROP_TABLE'				=>		'L&ouml;sche Tabelle',
+	'DEF_CREATE_TABLE'				=>		'Erstelle Tabelle',
+	'DEF_INSERT_DATA'				=>		'Schreibe Daten in Tabelle',
 	
 	
 	

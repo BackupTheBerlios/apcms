@@ -21,7 +21,7 @@
  * @access public
  * @package apcms
  * 
- * $Id: config.inc.php,v 1.4 2006/05/18 09:49:20 dma147 Exp $
+ * $Id: config.inc.php,v 1.5 2006/05/18 12:03:25 dma147 Exp $
  */
 
 /*)\
@@ -255,7 +255,7 @@ if (defined('IS_installed')) {
 	include($PATH."/libs/database.func.".$SUFFIX);
 }
 
-if (isset($MYSQLDATA['PREFIX']) && trim($MYSQLDATA['PREFIX']) != "") {
+if ((isset($MYSQLDATA['PREFIX']) && trim($MYSQLDATA['PREFIX']) != "") || (isset($MYSQLDATA['UNIQUE']) && trim($MYSQLDATA['UNIQUE']) != "")) {
 	$ptrenner = "_";
 } else {
 	$ptrenner = "";
@@ -266,7 +266,7 @@ if (defined('IS_installed')) {
 	/** 
 	 * Holds the whole mysql-prefix for the tables
 	 */
-	$apcms['mysql_prefix'] = $MYSQLDATA['PREFIX'].$ptrenner.$MYSQLDATA['UNIQUE'].'_';
+	$apcms['mysql_prefix'] = $MYSQLDATA['PREFIX'].$ptrenner.$MYSQLDATA['UNIQUE'].$ptrenner;
 	
 	$pgrep = preg_quote($MYSQLDATA['PREFIX'].$ptrenner.$MYSQLDATA['UNIQUE']);
 	$rettables = $db->unbuffered_getAll_row("SHOW TABLES");

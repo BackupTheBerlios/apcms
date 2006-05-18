@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: global_config.php,v 1.2 2006/05/18 12:03:25 dma147 Exp $
+ * $Id: global_rights.php,v 1.1 2006/05/18 12:03:44 dma147 Exp $
  */
 
 /*)\
@@ -43,12 +43,11 @@ $db->unbuffered_query($query1);
 echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$apcms['LANGUAGE']['DEF_CREATE_TABLE']." \"".$table."\"...<br />";
 @ob_flush();
 $query2 = "CREATE TABLE IF NOT EXISTS `".$table."` (
-  `title` varchar(128) NOT NULL,
-  `subtitle` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `sesslifetime` int(6) NOT NULL,
-  `emailfrom` varchar(128) NOT NULL,
-  `emailadress` varchar(128) NOT NULL
+  `action` varchar(255) NOT NULL,
+  `plugin` varchar(255) NOT NULL,
+  `groups` text NOT NULL,
+  KEY `action` (`action`),
+  KEY `plugin` (`plugin`)
 ) DEFAULT CHARSET=utf8";
 $db->unbuffered_query($query2);
 @ob_flush();
@@ -56,7 +55,16 @@ $db->unbuffered_query($query2);
 
 echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$apcms['LANGUAGE']['DEF_INSERT_DATA']." \"".$table."\"...<br />";
 @ob_flush();
-$query3 = "INSERT INTO `".$table."` (`title`, `subtitle`, `description`, `sesslifetime`, `emailfrom`, `emailadress`) VALUES ('My Page', 'My personal page', 'This is my personal page which I\'ve created to be online.', 3600, 'My Page', 'email@example.com')";
+$query3 = "INSERT INTO `".$table."` (`action`, `plugin`, `groups`) VALUES ('global_access', '', 'a:3:{i:0;i:1;i:1;i:2;i:2;i:3;}'),
+('admincenter', '', 'a:1:{i:0;i:1;}'),
+('admin_main_access', '', 'a:1:{i:0;i:1;}'),
+('admin_general_config_access', '', 'a:1:{i:0;i:1;}'),
+('admin_plugins_access', '', 'a:1:{i:0;i:1;}'),
+('admin_sidebars_access', '', 'a:1:{i:0;i:1;}'),
+('admin_user_access', '', 'a:1:{i:0;i:1;}'),
+('admin_groups_access', '', 'a:1:{i:0;i:1;}'),
+('admin_installplugins_access', '', 'a:1:{i:0;i:1;}'),
+('admin_pluginconfigure_access', '', 'a:1:{i:0;i:1;}')";
 $db->unbuffered_query($query3);
 @ob_flush();
 

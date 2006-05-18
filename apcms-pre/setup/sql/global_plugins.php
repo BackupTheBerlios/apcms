@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: global_config.php,v 1.2 2006/05/18 12:03:25 dma147 Exp $
+ * $Id: global_plugins.php,v 1.1 2006/05/18 12:03:44 dma147 Exp $
  */
 
 /*)\
@@ -43,20 +43,25 @@ $db->unbuffered_query($query1);
 echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$apcms['LANGUAGE']['DEF_CREATE_TABLE']." \"".$table."\"...<br />";
 @ob_flush();
 $query2 = "CREATE TABLE IF NOT EXISTS `".$table."` (
-  `title` varchar(128) NOT NULL,
-  `subtitle` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `sesslifetime` int(6) NOT NULL,
-  `emailfrom` varchar(128) NOT NULL,
-  `emailadress` varchar(128) NOT NULL
-) DEFAULT CHARSET=utf8";
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(64) NOT NULL,
+  `md5` varchar(32) NOT NULL,
+  `active` tinyint(1) NOT NULL default '1',
+  `config` text NOT NULL,
+  `version` varchar(15) NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `name` (`name`),
+  KEY `active` (`active`)
+) CHARSET=utf8 AUTO_INCREMENT=4";
 $db->unbuffered_query($query2);
 @ob_flush();
 
 
 echo " &nbsp;<span style=\"font-weight:bolder;color:green\">*</span> &nbsp;".$apcms['LANGUAGE']['DEF_INSERT_DATA']." \"".$table."\"...<br />";
 @ob_flush();
-$query3 = "INSERT INTO `".$table."` (`title`, `subtitle`, `description`, `sesslifetime`, `emailfrom`, `emailadress`) VALUES ('My Page', 'My personal page', 'This is my personal page which I\'ve created to be online.', 3600, 'My Page', 'email@example.com')";
+$query3 = "INSERT INTO `".$table."` (`id`, `name`, `md5`, `active`, `config`, `version`) VALUES (1, 'apcms_plugin_example', 'c79b45c08beb08b57867d0f067d475b8', 1, 'a:3:{s:5:\"title\";s:14:\"Example plugin\";s:8:\"foofield\";s:14:\"content of foo\";s:8:\"barfield\";i:1234;}', '0.0.1'),
+(2, 'apcms_sidebar_poweredby', 'd2c8e21b62e8f2bb098830ccd4f70c5b', 1, 'a:0:{}', '0.0.2'),
+(3, 'apcms_sidebar_adminbox', 'bf97756d30018c1db492f59a07a42870', 1, 'a:0:{}', '0.0.1')";
 $db->unbuffered_query($query3);
 @ob_flush();
 
