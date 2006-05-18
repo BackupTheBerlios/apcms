@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: header.php,v 1.2 2006/05/18 09:06:16 dma147 Exp $
+ * $Id: header.php,v 1.3 2006/05/18 09:20:29 dma147 Exp $
  */
 
 /*)\
@@ -49,7 +49,7 @@ echo '<?xml version="1.0" encoding="iso-8859-1"?>
 	<meta http-equiv="pragma" content="no-cache" />
 	<meta http-equiv="cache-control" content="no-cache" />'."\n";
 if (isset($redirect_url) && trim($redirect_url) != "") {
-	if (!isset($redirect_time) {
+	if (!isset($redirect_time)) {
 		$redirect_time = 3;
 	}
 	echo '	<meta http-equiv="refresh" content="'.$redirect_time.'; URL='.$redirect_url.'" />'."\n";

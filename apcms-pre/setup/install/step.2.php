@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: step.2.php,v 1.2 2006/05/18 09:06:16 dma147 Exp $
+ * $Id: step.2.php,v 1.3 2006/05/18 09:19:22 dma147 Exp $
  */
 
 /*)\
@@ -46,7 +46,7 @@ if (isset($_POST['step']) && intval($_POST['step']) == 2) {
 		}
 		$error = $apcms['LANGUAGE']['STEP1_NO_HOSTNAME'];
 		$redirect_url = '';
-		$redirect_time = 3:
+		$redirect_time = 3;
 	
 	} elseif (!isset($_POST['form']['username']) || trim($_POST['form']['username']) == "") {
 		foreach($_POST['form'] AS $key => $val) {
@@ -54,7 +54,7 @@ if (isset($_POST['step']) && intval($_POST['step']) == 2) {
 		}
 		$error = $apcms['LANGUAGE']['STEP1_NO_USERNAME'];
 		$redirect_url = '';
-		$redirect_time = 3:
+		$redirect_time = 3;
 	
 	} elseif (!isset($_POST['form']['password']) || trim($_POST['form']['password']) == "") {
 		foreach($_POST['form'] AS $key => $val) {
@@ -62,7 +62,7 @@ if (isset($_POST['step']) && intval($_POST['step']) == 2) {
 		}
 		$error = $apcms['LANGUAGE']['STEP1_NO_PASSWORD'];
 		$redirect_url = '';
-		$redirect_time = 3:
+		$redirect_time = 3;
 	
 	} elseif (!isset($_POST['form']['database']) || trim($_POST['form']['database']) == "") {
 		foreach($_POST['form'] AS $key => $val) {
@@ -70,7 +70,7 @@ if (isset($_POST['step']) && intval($_POST['step']) == 2) {
 		}
 		$error = $apcms['LANGUAGE']['STEP1_NO_DATABASE'];
 		$redirect_url = '';
-		$redirect_time = 3:
+		$redirect_time = 3;
 	
 	}
 	
