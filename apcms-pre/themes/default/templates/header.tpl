@@ -17,7 +17,7 @@
 	<meta http-equiv="Content-Style-Type" content="text/css" />
 	<meta http-equiv="pragma" content="no-cache" />
 	<meta http-equiv="cache-control" content="no-cache" />
-	{if $redirect_url}<meta http-equiv="refresh" content="{$redirect_time}; URL={$redirect_url}">{/if}
+	{if $redirect_url}<meta http-equiv="refresh" content="{$redirect_time}; URL={$redirect_url}" />{/if}
 	<link rel="stylesheet" href="{$THEMEURL}/theme.css" type="text/css" />
 	<link rel="SHORTCUT ICON" href="{$THEMEURL}/favicon.ico" />
 	

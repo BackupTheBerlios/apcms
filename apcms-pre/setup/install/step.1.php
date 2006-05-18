@@ -22,24 +22,21 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: step.1.php,v 1.1 2006/05/17 21:23:21 dma147 Exp $
+ * $Id: step.1.php,v 1.2 2006/05/18 09:06:16 dma147 Exp $
  */
 
 /*)\
 \(*/
 
 
-@ob_flush();
 if (!isset($_SESSION['lang'])) {
 	$_SESSION['lang'] = 'de';
 }
 include("./setup/lang/".$_SESSION['lang'].".lang.".$SUFFIX);
-@ob_flush();
 $sidebar = $apcms['LANGUAGE']['STEP1_HINT1'];
 
 
 include("./setup/header.".$SUFFIX);
-@ob_flush();
 
 echo "\n<div id=\"content1\">\n";
 echo "	<table width=\"100%\" border=\"0\" cellspacing=\"1\" cellpadding=\"3\">\n";
@@ -54,6 +51,7 @@ echo "</div><br />\n";
 
 echo "\n<div id=\"content1\">\n";
 echo "<form name=\"setupform\" action=\"".$_SERVER['PHP_SELF']."?setup[step]=2\" method=\"post\">\n";
+echo "	<input type=\"hidden\" name=\"step\" value=\"2\" />\n";
 echo "	<table width=\"100%\" border=\"0\" cellspacing=\"1\" cellpadding=\"3\">\n";
 
 echo "		<tr class=\"content2\">\n";
@@ -118,30 +116,6 @@ echo "</div><br />\n";
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 include("./setup/footer.".$SUFFIX);
-@ob_flush();
 
 ?>

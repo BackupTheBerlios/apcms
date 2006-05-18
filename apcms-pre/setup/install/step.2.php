@@ -22,14 +22,13 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: step.2.php,v 1.1 2006/05/17 21:23:21 dma147 Exp $
+ * $Id: step.2.php,v 1.2 2006/05/18 09:06:16 dma147 Exp $
  */
 
 /*)\
 \(*/
 
 
-@ob_flush();
 $sidebar = '';
 if (!isset($_SESSION['lang'])) {
 	$_SESSION['lang'] = 'de';
@@ -37,38 +36,72 @@ if (!isset($_SESSION['lang'])) {
 include("./setup/lang/".$_SESSION['lang'].".lang.".$SUFFIX);
 
 
-include("./setup/header.".$SUFFIX);
-@ob_flush();
 
 
+if (isset($_POST['step']) && intval($_POST['step']) == 2) {
+	
+	if (!isset($_POST['form']['hostname']) || trim($_POST['form']['hostname']) == "") {
+		foreach($_POST['form'] AS $key => $val) {
+			$_SESSION['form'][$key] = $val;
+		}
+		$error = $apcms['LANGUAGE']['STEP1_NO_HOSTNAME'];
+		$redirect_url = '';
+		$redirect_time = 3:
+	
+	} elseif (!isset($_POST['form']['username']) || trim($_POST['form']['username']) == "") {
+		foreach($_POST['form'] AS $key => $val) {
+			$_SESSION['form'][$key] = $val;
+		}
+		$error = $apcms['LANGUAGE']['STEP1_NO_USERNAME'];
+		$redirect_url = '';
+		$redirect_time = 3:
+	
+	} elseif (!isset($_POST['form']['password']) || trim($_POST['form']['password']) == "") {
+		foreach($_POST['form'] AS $key => $val) {
+			$_SESSION['form'][$key] = $val;
+		}
+		$error = $apcms['LANGUAGE']['STEP1_NO_PASSWORD'];
+		$redirect_url = '';
+		$redirect_time = 3:
+	
+	} elseif (!isset($_POST['form']['database']) || trim($_POST['form']['database']) == "") {
+		foreach($_POST['form'] AS $key => $val) {
+			$_SESSION['form'][$key] = $val;
+		}
+		$error = $apcms['LANGUAGE']['STEP1_NO_DATABASE'];
+		$redirect_url = '';
+		$redirect_time = 3:
+	
+	}
+	
+	
+	
+	include("./setup/header.".$SUFFIX);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	include("./setup/footer.".$SUFFIX);
+}
 
 
-echo "<b>".$apcms['LANGUAGE']['WELCOME']."</b>\n";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-include("./setup/footer.".$SUFFIX);
-@ob_flush();
 
 ?>

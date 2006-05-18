@@ -22,14 +22,13 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: step.4.php,v 1.1 2006/05/17 21:23:21 dma147 Exp $
+ * $Id: step.4.php,v 1.2 2006/05/18 09:06:16 dma147 Exp $
  */
 
 /*)\
 \(*/
 
 
-@ob_flush();
 $sidebar = '';
 if (!isset($_SESSION['lang'])) {
 	$_SESSION['lang'] = 'de';
@@ -38,12 +37,8 @@ include("./setup/lang/".$_SESSION['lang'].".lang.".$SUFFIX);
 
 
 include("./setup/header.".$SUFFIX);
-@ob_flush();
 
 
-
-
-echo "<b>".$apcms['LANGUAGE']['WELCOME']."</b>\n";
 
 
 
@@ -69,6 +64,5 @@ echo "<b>".$apcms['LANGUAGE']['WELCOME']."</b>\n";
 
 
 include("./setup/footer.".$SUFFIX);
-@ob_flush();
 
 ?>
