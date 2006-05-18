@@ -22,46 +22,65 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: step.3.php,v 1.2 2006/05/18 09:06:16 dma147 Exp $
+ * $Id: step.3.php,v 1.3 2006/05/18 10:20:31 dma147 Exp $
  */
 
 /*)\
 \(*/
 
 
-$sidebar = '';
 if (!isset($_SESSION['lang'])) {
 	$_SESSION['lang'] = 'de';
 }
 include("./setup/lang/".$_SESSION['lang'].".lang.".$SUFFIX);
-
-
-include("./setup/header.".$SUFFIX);
-
+$sidebar = '';
 
 
 
+if (isset($_POST['step']) && intval($_POST['step']) == 3) {
+	
+	foreach($_POST['form'] AS $key => $val) {
+		$_SESSION['form'][$key] = $val;
+	}
+	
+	if (!isset($_POST['form']['admin_username']) || trim($_POST['form']['admin_username']) == "") {
+		$error = $apcms['LANGUAGE']['STEP2_NO_USERNAME'];
+		$redirect_url = $apcms['baseURL'].'apcms_installer.'.$SUFFIX.'?setup[step]=2';
+		$redirect_time = 3;
+	
+	} elseif (!isset($_POST['form']['admin_password']) || trim($_POST['form']['admin_password']) == "") {
+		$error = $apcms['LANGUAGE']['STEP2_NO_PASSWORD'];
+		$redirect_url = $apcms['baseURL'].'apcms_installer.'.$SUFFIX.'?setup[step]=2';
+		$redirect_time = 3;
+	
+	} elseif (!isset($_POST['form']['admin_email']) || trim($_POST['form']['admin_email']) == "") {
+		$error = $apcms['LANGUAGE']['STEP2_NO_EMAIL'];
+		$redirect_url = $apcms['baseURL'].'apcms_installer.'.$SUFFIX.'?setup[step]=2';
+		$redirect_time = 3;
+	
+	}
+	
+	
+	
+	include("./setup/header.".$SUFFIX);
+	
+	
+	if (!isset($error) || trim($error) == "") {
+		
+		echo $apcms['LANGUAGE']['STEP3_FINAL_CHECK']."<br />\n<br />\n";
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	include("./setup/footer.".$SUFFIX);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-include("./setup/footer.".$SUFFIX);
 
 ?>

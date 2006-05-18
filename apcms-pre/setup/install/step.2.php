@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: step.2.php,v 1.5 2006/05/18 10:11:45 dma147 Exp $
+ * $Id: step.2.php,v 1.6 2006/05/18 10:20:31 dma147 Exp $
  */
 
 /*)\
@@ -40,34 +40,26 @@ $sidebar = '';
 
 if (isset($_POST['step']) && intval($_POST['step']) == 2) {
 	
+	foreach($_POST['form'] AS $key => $val) {
+		$_SESSION['form'][$key] = $val;
+	}
+	
 	if (!isset($_POST['form']['hostname']) || trim($_POST['form']['hostname']) == "") {
-		foreach($_POST['form'] AS $key => $val) {
-			$_SESSION['form'][$key] = $val;
-		}
 		$error = $apcms['LANGUAGE']['STEP1_NO_HOSTNAME'];
 		$redirect_url = $apcms['baseURL'].'apcms_installer.'.$SUFFIX.'?setup[step]=1';
 		$redirect_time = 3;
 	
 	} elseif (!isset($_POST['form']['username']) || trim($_POST['form']['username']) == "") {
-		foreach($_POST['form'] AS $key => $val) {
-			$_SESSION['form'][$key] = $val;
-		}
 		$error = $apcms['LANGUAGE']['STEP1_NO_USERNAME'];
 		$redirect_url = $apcms['baseURL'].'apcms_installer.'.$SUFFIX.'?setup[step]=1';
 		$redirect_time = 3;
 	
 	} elseif (!isset($_POST['form']['password']) || trim($_POST['form']['password']) == "") {
-		foreach($_POST['form'] AS $key => $val) {
-			$_SESSION['form'][$key] = $val;
-		}
 		$error = $apcms['LANGUAGE']['STEP1_NO_PASSWORD'];
 		$redirect_url = $apcms['baseURL'].'apcms_installer.'.$SUFFIX.'?setup[step]=1';
 		$redirect_time = 3;
 	
 	} elseif (!isset($_POST['form']['database']) || trim($_POST['form']['database']) == "") {
-		foreach($_POST['form'] AS $key => $val) {
-			$_SESSION['form'][$key] = $val;
-		}
 		$error = $apcms['LANGUAGE']['STEP1_NO_DATABASE'];
 		$redirect_url = $apcms['baseURL'].'apcms_installer.'.$SUFFIX.'?setup[step]=1';
 		$redirect_time = 3;
@@ -103,7 +95,7 @@ if (isset($_POST['step']) && intval($_POST['step']) == 2) {
 		echo "				<label for=\"admin_username\" accesskey=\"u\" tabindex=\"1\">".$apcms['LANGUAGE']['STEP2_ADMIN_USERNAME']."</label>\n";
 		echo "			</td>\n";
 		echo "			<td width=\"230\" align=\"right\" valign=\"top\">\n";
-		echo "				<input id=\"admin_username\" type=\"text\" name=\"form[admin_username]\" value=\"".(isset($_SESSION['form']['admin_username'])&&trim($_SESSION['form']['admin_username'])!=""?$_SESSION['form']['admin_username']:'admin')."\" style=\"width:100%\" />\n";
+		echo "				<input id=\"admin_username\" type=\"text\" name=\"form[admin_username]\" value=\"".(isset($_SESSION['form']['admin_username'])&&trim($_SESSION['form']['admin_username'])!=""?$_SESSION['form']['admin_username']:'')."\" style=\"width:100%\" />\n";
 		echo "			</td>\n";
 		echo "		</tr>\n";
 		

@@ -22,7 +22,7 @@
  * @package apcms
  * @subpackage setup
  * 
- * $Id: de.lang.php,v 1.3 2006/05/18 10:11:45 dma147 Exp $
+ * $Id: de.lang.php,v 1.4 2006/05/18 10:20:31 dma147 Exp $
  */
 
 /*)\
@@ -73,9 +73,11 @@ $apcms['LANGUAGE']	=	array(
 	'STEP2_ADMIN_USERNAME'			=>		'Username des Admins',
 	'STEP2_ADMIN_PASSWORD'			=>		'Passwort des Admins',
 	'STEP2_ADMIN_EMAIL'				=>		'EMail des Admins',
+	'STEP2_NO_USERNAME'				=>		'Du musst einen Usernamen f&uuml;r den Administrator eingeben!<br />Das m&uuml;ssen wir nochmal machen...',
+	'STEP2_NO_PASSWORD'				=>		'Du musst ein Passwort f&uuml;r den Administrator eingeben!<br />Das m&uuml;ssen wir nochmal machen...',
+	'STEP2_NO_EMAIL'				=>		'Du musst eine EMail f&uuml;r den Administrator eingeben!<br />Das m&uuml;ssen wir nochmal machen...',
 	
-	
-	
+	'STEP3_FINAL_CHECK'				=>		'Sehr gut. Es scheint als haben wir alle Daten zusammen, die wir f&uuml;r die Installation des APCMS ben&ouml;tigen.<br />Lass uns diese Daten noch einmal kurz gegenchecken:',
 	
 	
 	
